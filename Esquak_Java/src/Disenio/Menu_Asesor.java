@@ -191,6 +191,7 @@ public class Menu_Asesor extends javax.swing.JFrame {
     private void Cerrar_Sesion_AsesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_Sesion_AsesorActionPerformed
         Principal menu = new Principal();
         menu.setVisible(true);
+        dispose();
     }//GEN-LAST:event_Cerrar_Sesion_AsesorActionPerformed
 
     /**

@@ -264,7 +264,7 @@ public class Registro_Asesor extends javax.swing.JFrame {
 
     private void Registro_AsesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registro_AsesorActionPerformed
         Logica.Registro registro = new Logica.Registro();
-        registro.reg_asesor(Codigo_Asesor, Nombre_Asesor, Contrasenia_Asesor, Materia_Asesor, Telefono_Asesor, Correo_Asesor);
+        registro.reg_asesor(Codigo_Asesor, Nombre_Asesor, Contrasenia_Asesor, Materia_Asesor, Correo_Asesor, Telefono_Asesor);
         dispose();
     }//GEN-LAST:event_Registro_AsesorActionPerformed
 
