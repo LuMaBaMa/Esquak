@@ -138,7 +138,6 @@ public class Menu_Alumno extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(Asesorias);
-        Asesorias.getAccessibleContext().setAccessibleParent(jScrollBar1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

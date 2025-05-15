@@ -33,9 +33,7 @@ public class Registro {
         }
     }
     
-    public static void reg_asesor(JTextField Codigo_Asesor, JTextField Nombre_Asesor,
-            JTextField Contrasenia_Asesor, JTextField Materia_Asesor,
-            JTextField Correo_Asesor, JTextField Telefono_Asesor){
+    public static void reg_asesor(JTextField Codigo_Asesor, JTextField Nombre_Asesor, JTextField Contrasenia_Asesor, JTextField Materia_Asesor, JTextField Correo_Asesor, JTextField Telefono_Asesor){
         String sql = "insert into asesores(id_asesor, as_nombre, as_contrasenia, as_materia, as_correo, as_telefono) "
                 + "values (?,?,?,?,?,?)";
         Coneccion conx = new Coneccion();

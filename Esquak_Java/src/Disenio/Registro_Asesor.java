@@ -87,13 +87,7 @@ public class Registro_Asesor extends javax.swing.JFrame {
         jLabel3.setText("Materia");
 
         Materia_Asesor.setBackground(new java.awt.Color(255, 255, 255));
-        Materia_Asesor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Materia_Asesor.setForeground(new java.awt.Color(0, 0, 0));
-        Materia_Asesor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Materia_AsesorActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
@@ -107,7 +101,7 @@ public class Registro_Asesor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Materia_Asesor, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Materia_Asesor, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panel2Layout.setVerticalGroup(
@@ -235,7 +229,7 @@ public class Registro_Asesor extends javax.swing.JFrame {
                     .addComponent(Regresar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Contrasenia_Asesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -251,10 +245,6 @@ public class Registro_Asesor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Materia_AsesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Materia_AsesorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Materia_AsesorActionPerformed
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
         Principal menu = new Principal();
