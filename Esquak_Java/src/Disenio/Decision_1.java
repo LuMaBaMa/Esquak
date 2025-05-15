@@ -29,6 +29,7 @@ public class Decision_1 extends javax.swing.JFrame {
         panel1 = new java.awt.Panel();
         jLabel1 = new javax.swing.JLabel();
         panel2 = new java.awt.Panel();
+        Regreso = new javax.swing.JButton();
         Boton_Alumno = new javax.swing.JButton();
         Boton_Asesor = new javax.swing.JButton();
 
@@ -60,15 +61,30 @@ public class Decision_1 extends javax.swing.JFrame {
 
         panel2.setBackground(new java.awt.Color(255, 204, 0));
 
+        Regreso.setBackground(new java.awt.Color(204, 0, 0));
+        Regreso.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        Regreso.setText("Regreso");
+        Regreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(Regreso, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 56, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Regreso, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         Boton_Alumno.setBackground(new java.awt.Color(0, 204, 0));
@@ -141,6 +157,12 @@ public class Decision_1 extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_Boton_AsesorActionPerformed
 
+    private void RegresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresoActionPerformed
+        Principal menu = new Principal();
+        menu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_RegresoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,6 +201,7 @@ public class Decision_1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Alumno;
     private javax.swing.JButton Boton_Asesor;
+    private javax.swing.JButton Regreso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private java.awt.Panel panel1;

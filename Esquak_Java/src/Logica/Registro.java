@@ -12,6 +12,8 @@ public class Registro {
         
         try{
             PreparedStatement ps = con.prepareStatement(sql);
+            int Cod = Integer.parseInt(Boleta_Alumno.getText());
+            
             ps.setString(1,Boleta_Alumno.getText());
             ps.setString(2,Nombre_Alumno.getText());
             ps.setString(3,Contrasenia_Alumno.getText());
@@ -23,6 +25,8 @@ public class Registro {
             } else {
                 resultado = ps.executeUpdate();
                 if(resultado == 1){
+                    Logica.Configuracion conf = new Logica.Configuracion();
+                    conf.setCod(Cod);
                     Disenio.Menu_Alumno menual = new Disenio.Menu_Alumno();
                     menual.setVisible(true);
                 }
@@ -43,6 +47,8 @@ public class Registro {
         
         try{
             PreparedStatement ps = con.prepareStatement(sql);
+            int Cod = Integer.parseInt(Codigo_Asesor.getText());
+            
             ps.setString(1,Codigo_Asesor.getText());
             ps.setString(2,Nombre_Asesor.getText());
             ps.setString(3,Contrasenia_Asesor.getText());
@@ -58,6 +64,8 @@ public class Registro {
             } else {
                 resultado = ps.executeUpdate();
                 if(resultado == 1){
+                    Logica.Configuracion conf = new Logica.Configuracion();
+                    conf.setCod(Cod);
                     Disenio.Menu_Asesor menuas = new Disenio.Menu_Asesor();
                     menuas.setVisible(true);
                 }

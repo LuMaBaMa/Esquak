@@ -13,6 +13,7 @@ public class Login {
             con = conx.conectar();
             String consulta = "select * from alumnos where alumnos.alu_boleta = (?) and alumnos.alu_contrasenia = (?)";
             ps = con.prepareStatement(consulta);
+            int Cod = Integer.parseInt(Codigo.getText());
             
             String contra = new String(Contrasenia.getPassword());
             ps.setString(1,Codigo.getText());
@@ -21,6 +22,8 @@ public class Login {
             rs = ps.executeQuery();
             
             if(rs.next()){
+                Logica.Configuracion conf = new Logica.Configuracion();
+                conf.setCod(Cod);
                 JOptionPane.showMessageDialog(null,"Bienvenido");
                 Disenio.Menu_Alumno Menu = new Disenio.Menu_Alumno();
                 Menu.setVisible(true);
@@ -43,6 +46,7 @@ public class Login {
             con = conx.conectar();
             String consulta = "select * from asesores where asesores.id_asesor = (?) and asesores.as_contrasenia = (?)";
             ps = con.prepareStatement(consulta);
+            int Cod = Integer.parseInt(Codigo.getText());
             
             String contra = new String(Contrasenia.getPassword());
             ps.setString(1,Codigo.getText());
@@ -51,6 +55,8 @@ public class Login {
             rs = ps.executeQuery();
             
             if(rs.next()){
+                Logica.Configuracion conf = new Logica.Configuracion();
+                conf.setCod(Cod);
                 JOptionPane.showMessageDialog(null,"Bienvenido");
                 Disenio.Menu_Asesor Menu = new Disenio.Menu_Asesor();
                 Menu.setVisible(true);
@@ -73,6 +79,7 @@ public class Login {
             con = conx.conectar();
             String consulta = "select * from administrador where administrador.id_admin = (?) and administrador.ad_contrasenia = (?)";
             ps = con.prepareStatement(consulta);
+            int Cod = Integer.parseInt(Codigo.getText());
             
             String contra = new String(Contrasenia.getPassword());
             ps.setString(1,Codigo.getText());
@@ -81,6 +88,8 @@ public class Login {
             rs = ps.executeQuery();
             
             if(rs.next()){
+                Logica.Configuracion conf = new Logica.Configuracion();
+                conf.setCod(Cod);
                 JOptionPane.showMessageDialog(null,"Bienvenido");
                 Disenio.Menu_Asesor Menu = new Disenio.Menu_Asesor();
                 Menu.setVisible(true);

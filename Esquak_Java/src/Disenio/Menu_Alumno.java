@@ -1,8 +1,29 @@
 package Disenio;
-
+import java.sql.*;
+import javax.swing.JOptionPane;
 public class Menu_Alumno extends javax.swing.JFrame {
-
+    String Nombre;
     public Menu_Alumno() {
+        try{
+            Logica.Configuracion conf = new Logica.Configuracion();
+            int Cod = conf.getCod();
+            ResultSet rs = null;
+            PreparedStatement ps = null;
+            Logica.Coneccion conx = new Logica.Coneccion();
+            Connection con = null;
+            con = conx.conectar();
+            String sql = "SELECT * FROM alumnos WHERE alu_boleta = (?)";
+            ps = con.prepareStatement(sql);
+            
+            ps.setInt(1,Cod);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                Nombre = rs.getString("alu_nombre");
+            }
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null,"Error: "+e.toString());
+        }
         initComponents();
     }
 
@@ -21,7 +42,6 @@ public class Menu_Alumno extends javax.swing.JFrame {
         Inscribir_Asesoria = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Asesorias = new javax.swing.JTable();
-        jScrollBar1 = new javax.swing.JScrollBar();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -123,7 +143,9 @@ public class Menu_Alumno extends javax.swing.JFrame {
         Asesorias.setForeground(new java.awt.Color(0, 0, 0));
         Asesorias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
                 "Materia", "Fecha", "Asesor"
@@ -137,6 +159,8 @@ public class Menu_Alumno extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        Asesorias.setRowMargin(10);
+        Asesorias.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(Asesorias);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -147,10 +171,8 @@ public class Menu_Alumno extends javax.swing.JFrame {
             .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Revisar_Material, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                     .addComponent(Inscribir_Asesoria, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
@@ -171,11 +193,8 @@ public class Menu_Alumno extends javax.swing.JFrame {
                         .addContainerGap(65, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,7 +266,6 @@ public class Menu_Alumno extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;

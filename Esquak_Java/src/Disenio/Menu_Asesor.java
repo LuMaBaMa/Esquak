@@ -46,7 +46,7 @@ public class Menu_Asesor extends javax.swing.JFrame {
         panel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel1.setText("Bienvenido 'Asesor'");
+        jLabel1.setText("Bienvenido Asesor");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel2.setText("Materia: 'materia'");
