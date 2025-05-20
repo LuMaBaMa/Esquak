@@ -1,8 +1,15 @@
 package Disenio;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 public class Inscripcion_Asesorias extends javax.swing.JFrame {
+    Logica.Coneccion conx = new Logica.Coneccion();
+    ResultSet rs = null;
+    Connection con = null;
+    Logica.Configuracion conf = new Logica.Configuracion();
+    int Cod = conf.getCod();
+    PreparedStatement ps = null;
     public Inscripcion_Asesorias() {
         initComponents();
     }
@@ -117,7 +124,14 @@ public class Inscripcion_Asesorias extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        Asesorias.setColumnSelectionAllowed(true);
+        Asesorias.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                AsesoriasComponentAdded(evt);
+            }
+        });
         jScrollPane1.setViewportView(Asesorias);
+        Asesorias.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,38 +175,39 @@ public class Inscripcion_Asesorias extends javax.swing.JFrame {
     }//GEN-LAST:event_RegresoActionPerformed
 
     private void BusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaActionPerformed
-        JTextField Asignatura = Buscador_de_Materias;
-        ResultSet rs;
-        String sql = "SELECT id_asesor,as_nombre,as_materia FROM asesor";
-        Statement stmt;
-        Connection con = null;
-        Logica.Coneccion conx = new Logica.Coneccion();
+        //JTextField Asignatura = Buscador_de_Materias;
+        String mat = new String(Buscador_de_Materias.getText());
+        String sql = "SELECT id_asesor,as_nombre,as_materia FROM asesor where as_materia = (?)";
         con = conx.conectar();
         try{
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(sql);
+            ps = con.prepareStatement(sql);
+            ps.setString(1, mat);
+            rs = ps.executeQuery();
             int codigo;
             String nombre,materia;
             
-            while (rs.next()) {
+            if(rs.next()) {
                 DefaultTableModel model = (DefaultTableModel) Asesorias.getModel();
                 Object[] newRow = new Object[3]; // Cambia el tamaño según el número de columnas
                 codigo = rs.getInt("id_asesor");
                 nombre = rs.getString("as_nombre");
                 materia = rs.getString("as_materia");
-                if(materia.equals(Asignatura)){
-                    newRow[0] = codigo; // Materia
-                    newRow[1] = nombre; // Asesor
-                    newRow[2] = materia; // Código
-                    model.addRow(newRow); // Añade la nueva fila al modelo
-                }
-                
+                newRow[0] = codigo; // Materia
+                newRow[1] = nombre; // Asesor
+                newRow[2] = materia; // Código
+                model.addRow(newRow); // Añade la nueva fila al modelo
+            } else {
+                JOptionPane.showMessageDialog(null,"No se ha registrado ninguna clase de esa matería");
             }
         } catch(SQLException e){
             e.getMessage();
             throw new RuntimeException();
         }
     }//GEN-LAST:event_BusquedaActionPerformed
+
+    private void AsesoriasComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AsesoriasComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AsesoriasComponentAdded
 
     /**
      * @param args the command line arguments

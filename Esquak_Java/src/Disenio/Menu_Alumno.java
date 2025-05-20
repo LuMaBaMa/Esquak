@@ -2,11 +2,11 @@ package Disenio;
 import java.sql.*;
 import javax.swing.JOptionPane;
 public class Menu_Alumno extends javax.swing.JFrame {
+    Logica.Configuracion conf = new Logica.Configuracion();
+    int Cod = conf.getCod();
     String Nombre;
     public Menu_Alumno() {
         try{
-            Logica.Configuracion conf = new Logica.Configuracion();
-            int Cod = conf.getCod();
             ResultSet rs = null;
             PreparedStatement ps = null;
             Logica.Coneccion conx = new Logica.Coneccion();
@@ -212,11 +212,15 @@ public class Menu_Alumno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Revisar_MaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Revisar_MaterialActionPerformed
-        // TODO add your handling code here:
+        Material mat = new Material();
+        mat.setVisible(true);
+        dispose();
     }//GEN-LAST:event_Revisar_MaterialActionPerformed
 
     private void Inscribir_AsesoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inscribir_AsesoriaActionPerformed
-        // TODO add your handling code here:
+        Inscripcion_Asesorias ins = new Inscripcion_Asesorias();
+        ins.setVisible(true);
+        dispose();
     }//GEN-LAST:event_Inscribir_AsesoriaActionPerformed
 
     private void Cerrar_Sesion_AlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_Sesion_AlumnoActionPerformed

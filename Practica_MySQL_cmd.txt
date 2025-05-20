@@ -1,0 +1,19 @@
+Creación de Base de Datos (Clase 25/03/2025)
+
+1.- create database db_lmbm;
+2.- use db_lmbm;
+3.- create table cat_alumno(alu_boleta int not null, alu_nombre char(20), alu_appat char(20), alu_apmat char(20), primary key(alu_boleta));
+4.- describe cat_alumno;
+5.- insert into cat_alumno(alu_boleta, alu_nombre, alu_appat, alu_apmat) values (2022090074, 'Luis Manuel', 'Barrios', 'Martinez');
+6.- insert into cat_alumno(alu_boleta, alu_nombre, alu_appat, alu_apmat) values (2023090074, 'Zohan', 'Sanchez', 'Gonzales');
+7.- insert into cat_alumno(alu_boleta, alu_nombre, alu_appat, alu_apmat) values (2024090074, 'Elihu', 'Briseño', 'Aparicio');
+8.- select * from cat_alumno where alu_boleta = 2022090074;
+9.- select * from cat_alumno where alu_boleta = 2022090074 and 'Luis Manuel';
+10.- alter table cat_alumno add alu_fecha char(20) after alu_boleta;
+11.- update cat_alumno set alu_fecha = ('2025-03-25');
+12.- update cat_alumno set alu_fecha = ('2024-02-28') where alu_boleta = 2022090074;
+13.- update cat_alumno set alu_fecha = ('2010-10-30') where alu_boleta = 2022090074;
+14.- select * from cat_alumno where alu_fecha > '2014-12-31';
+15.-select * from cat_alumno where year(alu_fecha) > '2015';
+16.-select max (alu_fecha) from cat_alumno;
+17.- select * from cat_alumno where alu_fecha = (select max(alu_fecha) from cat_alumno);
