@@ -79,7 +79,6 @@ public class Login {
             con = conx.conectar();
             String consulta = "select * from administrador where administrador.id_admin = (?) and administrador.ad_contrasenia = (?)";
             ps = con.prepareStatement(consulta);
-            int Cod = Integer.parseInt(Codigo.getText());
             
             String contra = new String(Contrasenia.getPassword());
             ps.setString(1,Codigo.getText());
@@ -88,10 +87,8 @@ public class Login {
             rs = ps.executeQuery();
             
             if(rs.next()){
-                Logica.Configuracion conf = new Logica.Configuracion();
-                conf.setCod(Cod);
                 JOptionPane.showMessageDialog(null,"Bienvenido");
-                Disenio.Menu_Asesor Menu = new Disenio.Menu_Asesor();
+                Disenio.Menu_Admin Menu = new Disenio.Menu_Admin();
                 Menu.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null,"El usuario es incorrecto");

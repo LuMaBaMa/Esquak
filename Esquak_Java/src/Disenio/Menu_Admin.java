@@ -31,13 +31,15 @@ public class Menu_Admin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Salir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Inscripciones = new javax.swing.JButton();
+        Material = new javax.swing.JButton();
+        Historial = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,20 +88,25 @@ public class Menu_Admin extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 51));
-        jButton1.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Alumnos y Asesores");
+        Inscripciones.setBackground(new java.awt.Color(0, 204, 51));
+        Inscripciones.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
+        Inscripciones.setForeground(new java.awt.Color(255, 255, 255));
+        Inscripciones.setText("Alumnos y Asesores");
+        Inscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InscripcionesActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 204));
-        jButton2.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Revisar Material");
+        Material.setBackground(new java.awt.Color(0, 153, 204));
+        Material.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
+        Material.setForeground(new java.awt.Color(255, 255, 255));
+        Material.setText("Revisar Material");
 
-        jButton3.setBackground(new java.awt.Color(153, 0, 204));
-        jButton3.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Historial de Asesorias");
+        Historial.setBackground(new java.awt.Color(153, 0, 204));
+        Historial.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
+        Historial.setForeground(new java.awt.Color(255, 255, 255));
+        Historial.setText("Historial de Asesorias");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,12 +118,12 @@ public class Menu_Admin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Inscripciones, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(130, 130, 130)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Material, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(227, 227, 227)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Historial, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -127,10 +134,10 @@ public class Menu_Admin extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Material, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Inscripciones, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Historial, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
 
@@ -153,6 +160,12 @@ public class Menu_Admin extends javax.swing.JFrame {
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_SalirActionPerformed
+
+    private void InscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InscripcionesActionPerformed
+        Decision_2 dec = new Decision_2();
+        dec.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_InscripcionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,10 +203,10 @@ public class Menu_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Historial;
+    private javax.swing.JButton Inscripciones;
+    private javax.swing.JButton Material;
     private javax.swing.JButton Salir;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

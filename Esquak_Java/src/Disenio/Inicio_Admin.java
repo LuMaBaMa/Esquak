@@ -44,6 +44,7 @@ public class Inicio_Admin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Inicio de Sesión");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -168,7 +169,7 @@ public class Inicio_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresoActionPerformed
-        Decision_2 menu = new Decision_2();
+        Login menu = new Login();
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_RegresoActionPerformed
@@ -176,6 +177,7 @@ public class Inicio_Admin extends javax.swing.JFrame {
     private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
         Logica.Login inicio = new Logica.Login();
         inicio.ValidaAdmin(Codigo, Contrasenia);
+        dispose();
     }//GEN-LAST:event_InicioActionPerformed
 
     /**

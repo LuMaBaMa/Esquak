@@ -20,7 +20,7 @@ as_nombre char(70),
 as_contrasenia varchar(10),
 as_materia char(30) not null,
 as_correo varchar(30) not null,
-as_telefono int not null,
+as_telefono char(20) not null,
 primary key (id_asesor)
 );
 
@@ -48,20 +48,28 @@ DESCRIBE material;
 
 CREATE TABLE asesoria(
 num_asesoria int auto_increment,
-materia char(15),
+materia char(50),
 fecha datetime,
 alumno int,
+alu_nombre char(70),
+as_nombre char(70),
 asesor int,
 primary key (num_asesoria),
 foreign key (alumno) references alumnos(alu_boleta),
 foreign key (asesor) references asesores(id_asesor)
 );
 
+insert into asesoria(materia,fecha,alumno,alu_nombre,as_nombre,asesor) values 
+('Probabilidad y Estadistica','2025-05-14',2022090074,'Barrios Martinez Luis Manuel','Oliver',1234);
+
+select * from asesoria;
 describe asesoria;
+drop table asesoria;
 
 insert into administrador(id_admin, ad_nombre, ad_contrasenia) values
-(0235476,'mayoneso',0123);
+(01234567,'mayoneso',012345);
 
 select * from administrador;
 select * from asesores;
 select * from alumnos;
+SELECT materia,fecha,as_nombre FROM asesoria WHERE alumno = 2022090074;

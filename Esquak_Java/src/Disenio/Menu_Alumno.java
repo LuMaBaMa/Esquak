@@ -1,30 +1,41 @@
 package Disenio;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 public class Menu_Alumno extends javax.swing.JFrame {
     Logica.Configuracion conf = new Logica.Configuracion();
     int Cod = conf.getCod();
     String Nombre;
     public Menu_Alumno() {
-        try{
-            ResultSet rs = null;
-            PreparedStatement ps = null;
-            Logica.Coneccion conx = new Logica.Coneccion();
-            Connection con = null;
-            con = conx.conectar();
-            String sql = "SELECT * FROM alumnos WHERE alu_boleta = (?)";
-            ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,Cod);
-            rs = ps.executeQuery();
-            
-            if(rs.next()){
-                Nombre = rs.getString("alu_nombre");
-            }
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(null,"Error: "+e.toString());
-        }
         initComponents();
+        mostrarAsesorias("asesorias");
+    }
+    
+    public void mostrarAsesorias(String tabla){
+        String sql = "SELECT materia,fecha,as_nombre FROM asesoria WHERE alumno = (?)";
+        Connection con = null;
+        Logica.Coneccion conx = new Logica.Coneccion();
+        con = conx.conectar();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Materia");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Asesor");
+        Asesorias.setModel(modelo);
+        String[] datos = new String[3];
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,Cod);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                modelo.addRow(datos);
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error: "+ e.toString());
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -71,7 +82,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
 
         panel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Bienvenido Alumno");
 
@@ -143,16 +154,14 @@ public class Menu_Alumno extends javax.swing.JFrame {
         Asesorias.setForeground(new java.awt.Color(0, 0, 0));
         Asesorias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Materia", "Fecha", "Asesor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -171,7 +180,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
             .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Revisar_Material, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
@@ -192,8 +201,8 @@ public class Menu_Alumno extends javax.swing.JFrame {
                         .addComponent(Revisar_Material, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(65, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                         .addContainerGap())))
         );
 
