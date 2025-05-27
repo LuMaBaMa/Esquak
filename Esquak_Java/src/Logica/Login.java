@@ -19,16 +19,20 @@ public class Login {
             ps.setString(1,Codigo.getText());
             ps.setString(2,contra);
             
-            rs = ps.executeQuery();
-            
-            if(rs.next()){
-                Logica.Configuracion conf = new Logica.Configuracion();
-                conf.setCod(Cod);
-                JOptionPane.showMessageDialog(null,"Bienvenido");
-                Disenio.Menu_Alumno Menu = new Disenio.Menu_Alumno();
-                Menu.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null,"El usuario es incorrecto");
+            if(Codigo.getText().isEmpty()||contra.isEmpty()){
+                JOptionPane.showMessageDialog(null,"Por favor termine de llenar el formulario");
+                return;
+            }else{
+                rs = ps.executeQuery();
+                if(rs.next()){
+                    Logica.Configuracion conf = new Logica.Configuracion();
+                    conf.setCod(Cod);
+                    JOptionPane.showMessageDialog(null,"Bienvenido");
+                    Disenio.Menu_Alumno Menu = new Disenio.Menu_Alumno();
+                    Menu.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null,"El usuario es incorrecto");
+                }
             }
             
         }catch(Exception e){
@@ -52,21 +56,26 @@ public class Login {
             ps.setString(1,Codigo.getText());
             ps.setString(2,contra);
             
-            rs = ps.executeQuery();
-            
-            if(rs.next()){
-                Logica.Configuracion conf = new Logica.Configuracion();
-                conf.setCod(Cod);
-                JOptionPane.showMessageDialog(null,"Bienvenido");
-                Disenio.Menu_Asesor Menu = new Disenio.Menu_Asesor();
-                Menu.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null,"El usuario es incorrecto");
+            if(Codigo.getText().isEmpty()||contra.isEmpty()){
+                JOptionPane.showMessageDialog(null,"Por favor termine de llenar el formulario");
+                return;
+            }else{
+                rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    Logica.Configuracion conf = new Logica.Configuracion();
+                    conf.setCod(Cod);
+                    JOptionPane.showMessageDialog(null,"Bienvenido");
+                    Disenio.Menu_Asesor Menu = new Disenio.Menu_Asesor();
+                    Menu.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null,"El usuario es incorrecto");
+                }
             }
             
         }catch(Exception e){
             System.out.println("No se puede ingresar");
-            JOptionPane.showMessageDialog(null,"ERROR: "+e.toString());
+            System.out.println("Error: "+e.toString());
         }
     }
     

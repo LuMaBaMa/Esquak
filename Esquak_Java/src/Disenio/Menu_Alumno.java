@@ -227,7 +227,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
     }//GEN-LAST:event_Revisar_MaterialActionPerformed
 
     private void Inscribir_AsesoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inscribir_AsesoriaActionPerformed
-        Inscripcion_Asesorias ins = new Inscripcion_Asesorias();
+        Buscador_Asesorias ins = new Buscador_Asesorias();
         ins.setVisible(true);
         dispose();
     }//GEN-LAST:event_Inscribir_AsesoriaActionPerformed

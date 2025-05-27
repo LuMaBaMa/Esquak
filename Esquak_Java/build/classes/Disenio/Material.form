@@ -117,6 +117,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Gill Sans MT" size="20" style="0"/>
                 </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Regresar"/>
               </Properties>
               <Events>
@@ -136,11 +139,11 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" pref="467" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Buscar_Material" min="-2" pref="116" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Materia" min="-2" pref="434" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Buscar" min="-2" pref="116" max="-2" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -149,8 +152,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField1" pref="45" max="32767" attributes="0"/>
-                          <Component id="Buscar_Material" max="32767" attributes="0"/>
+                          <Component id="Buscar" pref="45" max="32767" attributes="0"/>
+                          <Component id="Materia" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -158,29 +161,56 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JButton" name="Buscar">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="0" red="66" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Gill Sans MT" size="20" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="Materia">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
+                  <Font name="Gill Sans MT" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="Buscar_Material">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="cc" red="0" type="rgb"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="14">
+                    <StringItem index="0" value="Algebra"/>
+                    <StringItem index="1" value="Geometr&#xed;a y Trigonometr&#xed;a"/>
+                    <StringItem index="2" value="Geometr&#xed;a Anal&#xed;tica"/>
+                    <StringItem index="3" value="Calculo Diferencial"/>
+                    <StringItem index="4" value="Calculo Integral"/>
+                    <StringItem index="5" value="Probabilidad y Estad&#xed;stica"/>
+                    <StringItem index="6" value="F&#xed;sica I"/>
+                    <StringItem index="7" value="F&#xed;sica II"/>
+                    <StringItem index="8" value="F&#xed;sica III"/>
+                    <StringItem index="9" value="F&#xed;sica IV"/>
+                    <StringItem index="10" value="Qu&#xed;mica I"/>
+                    <StringItem index="11" value="Qu&#xed;mica II"/>
+                    <StringItem index="12" value="Qu&#xed;mica III"/>
+                    <StringItem index="13" value="Qu&#xed;mica IV"/>
+                  </StringArray>
                 </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Gill Sans MT" size="20" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -191,7 +221,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="Material_Disponible">
+            <Component class="javax.swing.JTable" name="Material">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -200,10 +230,10 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="4">
+                  <Table columnCount="3" rowCount="0">
                     <Column editable="true" title="Autor" type="java.lang.String"/>
                     <Column editable="true" title="Materia" type="java.lang.String"/>
-                    <Column editable="true" title="" type="java.lang.Object"/>
+                    <Column editable="true" title="Nombre" type="java.lang.String"/>
                   </Table>
                 </Property>
               </Properties>

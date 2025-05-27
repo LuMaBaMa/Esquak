@@ -40,6 +40,7 @@ public class Decision_1 extends javax.swing.JFrame {
         panel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Eras Bold ITC", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Elija su tipo de usuario");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -63,7 +64,8 @@ public class Decision_1 extends javax.swing.JFrame {
 
         Regreso.setBackground(new java.awt.Color(204, 0, 0));
         Regreso.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        Regreso.setText("Regreso");
+        Regreso.setForeground(new java.awt.Color(255, 255, 255));
+        Regreso.setText("Regresar");
         Regreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegresoActionPerformed(evt);
@@ -74,10 +76,10 @@ public class Decision_1 extends javax.swing.JFrame {
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(300, 300, 300)
-                .addComponent(Regreso, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Regreso, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(288, 288, 288))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +90,8 @@ public class Decision_1 extends javax.swing.JFrame {
         );
 
         Boton_Alumno.setBackground(new java.awt.Color(0, 204, 0));
-        Boton_Alumno.setFont(new java.awt.Font("Gill Sans MT", 0, 28)); // NOI18N
+        Boton_Alumno.setFont(new java.awt.Font("Gill Sans MT", 0, 34)); // NOI18N
+        Boton_Alumno.setForeground(new java.awt.Color(255, 255, 255));
         Boton_Alumno.setText("Alumno");
         Boton_Alumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +100,8 @@ public class Decision_1 extends javax.swing.JFrame {
         });
 
         Boton_Asesor.setBackground(new java.awt.Color(0, 102, 153));
-        Boton_Asesor.setFont(new java.awt.Font("Gill Sans MT", 0, 28)); // NOI18N
+        Boton_Asesor.setFont(new java.awt.Font("Gill Sans MT", 0, 34)); // NOI18N
+        Boton_Asesor.setForeground(new java.awt.Color(255, 255, 255));
         Boton_Asesor.setText("Asesor");
         Boton_Asesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

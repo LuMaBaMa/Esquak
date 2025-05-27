@@ -1,12 +1,48 @@
 package Disenio;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class Material extends javax.swing.JFrame {
 
     public Material() {
         initComponents();
     }
-
+    
+    public void mostrarMaterial(String tabla){
+        String materia = Materia.getSelectedItem().toString();
+        String sql = "SELECT * FROM material WHERE materia = (?)";
+        PreparedStatement ps;
+        Connection con = null;
+        Logica.Coneccion conx = new Logica.Coneccion();
+        con = conx.conectar();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Autor");
+        modelo.addColumn("Materia");
+        modelo.addColumn("Nombre");
+        Material.setModel(modelo);
+        
+        String[] datos = new String[3];
+        
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1,materia);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                modelo.addRow(datos);
+            } else {
+                datos[0] = " ";
+                datos[1] = " ";
+                datos[2] = " ";
+                JOptionPane.showMessageDialog(null,"No hay material disponible en la matería de "+materia);
+            }
+        } catch(SQLException e){
+            System.out.println("Error: "+e.toString());
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -16,10 +52,10 @@ public class Material extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Regreso = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        Buscar_Material = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
+        Materia = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Material_Disponible = new javax.swing.JTable();
+        Material = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -33,6 +69,7 @@ public class Material extends javax.swing.JFrame {
 
         Regreso.setBackground(new java.awt.Color(204, 0, 0));
         Regreso.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
+        Regreso.setForeground(new java.awt.Color(255, 255, 255));
         Regreso.setText("Regresar");
         Regreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,57 +100,61 @@ public class Material extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 0));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        Buscar.setBackground(new java.awt.Color(102, 0, 153));
+        Buscar.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
+        Buscar.setForeground(new java.awt.Color(255, 255, 255));
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
 
-        Buscar_Material.setBackground(new java.awt.Color(0, 204, 0));
-        Buscar_Material.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
-        Buscar_Material.setText("Buscar");
+        Materia.setBackground(new java.awt.Color(255, 255, 255));
+        Materia.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        Materia.setForeground(new java.awt.Color(0, 0, 0));
+        Materia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Algebra", "Geometría y Trigonometría", "Geometría Analítica", "Calculo Diferencial", "Calculo Integral", "Probabilidad y Estadística", "Física I", "Física II", "Física III", "Física IV", "Química I", "Química II", "Química III", "Química IV" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Buscar_Material, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(78, 78, 78)
+                .addComponent(Materia, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(Buscar_Material, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(Materia))
                 .addContainerGap())
         );
 
-        Material_Disponible.setBackground(new java.awt.Color(255, 255, 255));
-        Material_Disponible.setForeground(new java.awt.Color(0, 0, 0));
-        Material_Disponible.setModel(new javax.swing.table.DefaultTableModel(
+        Material.setBackground(new java.awt.Color(255, 255, 255));
+        Material.setForeground(new java.awt.Color(0, 0, 0));
+        Material.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Autor", "Materia", ""
+                "Autor", "Materia", "Nombre"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(Material_Disponible);
+        jScrollPane1.setViewportView(Material);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -156,6 +197,10 @@ public class Material extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_RegresoActionPerformed
 
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        mostrarMaterial("material");
+    }//GEN-LAST:event_BuscarActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -189,14 +234,14 @@ public class Material extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Buscar_Material;
-    private javax.swing.JTable Material_Disponible;
+    private javax.swing.JButton Buscar;
+    private javax.swing.JComboBox<String> Materia;
+    private javax.swing.JTable Material;
     private javax.swing.JButton Regreso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

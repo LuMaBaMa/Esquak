@@ -1,5 +1,6 @@
 package Logica;
 import java.sql.*;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 public class Registro {
@@ -32,12 +33,14 @@ public class Registro {
                 }
             }
         }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "No se han llenado todos los campos");
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
     }
     
-    public static void reg_asesor(JTextField Codigo_Asesor, JTextField Nombre_Asesor, JTextField Contrasenia_Asesor, JTextField Materia_Asesor, JTextField Correo_Asesor, JTextField Telefono_Asesor){
+    public static void reg_asesor(JTextField Codigo_Asesor, JTextField Nombre_Asesor, 
+            JTextField Contrasenia_Asesor, JComboBox Materia_Asesor, JTextField Correo_Asesor, JTextField Telefono_Asesor){
         String sql = "insert into asesores(id_asesor, as_nombre, as_contrasenia, as_materia, as_correo, as_telefono) "
                 + "values (?,?,?,?,?,?)";
         Coneccion conx = new Coneccion();
@@ -48,16 +51,17 @@ public class Registro {
         try{
             PreparedStatement ps = con.prepareStatement(sql);
             int Cod = Integer.parseInt(Codigo_Asesor.getText());
+            String materia = Materia_Asesor.getSelectedItem().toString();
             
             ps.setString(1,Codigo_Asesor.getText());
             ps.setString(2,Nombre_Asesor.getText());
             ps.setString(3,Contrasenia_Asesor.getText());
-            ps.setString(4,Materia_Asesor.getText());
+            ps.setString(4,materia);
             ps.setString(5,Correo_Asesor.getText());
             ps.setString(6,Telefono_Asesor.getText());
             
             if (Codigo_Asesor.getText().isEmpty() || Nombre_Asesor.getText().isEmpty() || 
-                Contrasenia_Asesor.getText().isEmpty() || Materia_Asesor.getText().isEmpty() || 
+                Contrasenia_Asesor.getText().isEmpty()|| 
                 Telefono_Asesor.getText().isEmpty() || Correo_Asesor.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null,"No se han llenado todos los campos");
                 return;
@@ -72,6 +76,7 @@ public class Registro {
             }
             
         }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,"No se han llenado todos los campos");
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
