@@ -1,5 +1,7 @@
 package Disenio;
 import java.sql.*;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 public class Info_Personal extends javax.swing.JFrame {
     public String as_nombre, as_materia, as_contrasenia, as_telefono, as_correo;
     Logica.Configuracion conf = new Logica.Configuracion();
@@ -67,7 +69,7 @@ public class Info_Personal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -91,10 +93,10 @@ public class Info_Personal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel3.setBackground(new java.awt.Color(38, 45, 90));
 
         jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
 
         Nombre_Asesor.setEditable(false);
@@ -103,7 +105,7 @@ public class Info_Personal extends javax.swing.JFrame {
         Nombre_Asesor.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Materia:");
 
         Materia_Asesor.setBackground(new java.awt.Color(255, 255, 255));
@@ -174,6 +176,11 @@ public class Info_Personal extends javax.swing.JFrame {
         Actualizar.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         Actualizar.setForeground(new java.awt.Color(0, 0, 0));
         Actualizar.setText("Actualizar");
+        Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarActionPerformed(evt);
+            }
+        });
 
         Regreso.setBackground(new java.awt.Color(204, 0, 0));
         Regreso.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
@@ -266,8 +273,16 @@ public class Info_Personal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresoActionPerformed
+        Menu_Asesor menu = new Menu_Asesor();
+        menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_RegresoActionPerformed
+
+    private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
+        Logica.Actualiza ac = new Logica.Actualiza();
+        ac.Actualizar(Materia_Asesor, Contrasenia_Asesor, Correo_Asesor, Telefono_Asesor);
+        dispose();
+    }//GEN-LAST:event_ActualizarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

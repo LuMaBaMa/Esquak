@@ -1,11 +1,10 @@
 package Disenio;
+import Logica.Configuracion;
 import java.sql.*;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class Menu_Alumno extends javax.swing.JFrame {
-    Logica.Configuracion conf = new Logica.Configuracion();
+    Configuracion conf = new Configuracion();
     int Cod = conf.getCod();
-    String Nombre;
     public Menu_Alumno() {
         initComponents();
         mostrarAsesorias("asesorias");
@@ -34,7 +33,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
                 modelo.addRow(datos);
             }
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error: "+ e.toString());
+            System.out.println("Error: "+ e.toString());
         }
     }
 
@@ -78,7 +77,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         panel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -100,7 +99,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        panel2.setBackground(new java.awt.Color(255, 204, 0));
+        panel2.setBackground(new java.awt.Color(38, 45, 90));
 
         Cerrar_Sesion_Alumno.setBackground(new java.awt.Color(255, 0, 0));
         Cerrar_Sesion_Alumno.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,12 +162,20 @@ public class Menu_Alumno extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        Asesorias.setRowMargin(10);
+        Asesorias.setEnabled(false);
+        Asesorias.setRowHeight(30);
         Asesorias.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(Asesorias);
 
@@ -180,7 +187,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
             .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Revisar_Material, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,10 +206,10 @@ public class Menu_Alumno extends javax.swing.JFrame {
                         .addComponent(Inscribir_Asesoria, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
                         .addComponent(Revisar_Material, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(65, Short.MAX_VALUE))
+                        .addContainerGap(90, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                         .addContainerGap())))
         );
 

@@ -11,7 +11,7 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
     public void mostrarAsesorias(String tabla){
         String materia = Materia.getSelectedItem().toString();
         String sql = "SELECT * FROM asesores WHERE as_materia = (?)";
-        PreparedStatement ps;
+        PreparedStatement ps = null;
         Connection con = null;
         Logica.Coneccion conx = new Logica.Coneccion();
         con = conx.conectar();
@@ -54,8 +54,9 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
         Asesorias = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -96,14 +97,14 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel3.setBackground(new java.awt.Color(38, 45, 90));
 
         Materia.setBackground(new java.awt.Color(255, 255, 255));
         Materia.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         Materia.setForeground(new java.awt.Color(0, 0, 0));
         Materia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Algebra", "Geometría y Trigonometría", "Geometría Analítica", "Calculo Diferencial", "Calculo Integral", "Probabilidad y Estadística", "Física I", "Física II", "Física III", "Física IV", "Química I", "Química II", "Química III", "Química IV" }));
 
-        Buscar.setBackground(new java.awt.Color(102, 0, 153));
+        Buscar.setBackground(new java.awt.Color(204, 0, 204));
         Buscar.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
         Buscar.setForeground(new java.awt.Color(255, 255, 255));
         Buscar.setText("Buscar");
@@ -145,7 +146,7 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -160,7 +161,9 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
             }
         });
         Asesorias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        Asesorias.setEnabled(false);
         Asesorias.setGridColor(new java.awt.Color(0, 0, 0));
+        Asesorias.setRowHeight(30);
         Asesorias.getTableHeader().setResizingAllowed(false);
         Asesorias.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(Asesorias);

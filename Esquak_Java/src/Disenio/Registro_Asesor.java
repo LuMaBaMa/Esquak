@@ -1,4 +1,5 @@
 package Disenio;
+import javax.swing.JOptionPane;
 public class Registro_Asesor extends javax.swing.JFrame {
 
     public Registro_Asesor() {
@@ -30,7 +31,7 @@ public class Registro_Asesor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         panel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -55,18 +56,18 @@ public class Registro_Asesor extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        panel2.setBackground(new java.awt.Color(255, 204, 0));
+        panel2.setBackground(new java.awt.Color(38, 45, 90));
 
         Nombre_Asesor.setBackground(new java.awt.Color(255, 255, 255));
         Nombre_Asesor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Nombre_Asesor.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
 
         jLabel3.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Materia");
 
         Materia_Asesor.setBackground(new java.awt.Color(255, 255, 255));
@@ -239,9 +240,13 @@ public class Registro_Asesor extends javax.swing.JFrame {
     }//GEN-LAST:event_RegresarActionPerformed
 
     private void Registro_AsesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registro_AsesorActionPerformed
-        Logica.Registro registro = new Logica.Registro();
-        registro.reg_asesor(Codigo_Asesor, Nombre_Asesor, Contrasenia_Asesor, Materia_Asesor, Correo_Asesor, Telefono_Asesor);
-        dispose();
+        if(Codigo_Asesor.getText().isEmpty() || Nombre_Asesor.getText().isEmpty() || Contrasenia_Asesor.getText().isEmpty() || Correo_Asesor.getText().isEmpty() || Telefono_Asesor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "No se han llenado todos los campos");
+        } else {
+            Logica.Registro registro = new Logica.Registro();
+            registro.reg_asesor(Codigo_Asesor, Nombre_Asesor, Contrasenia_Asesor, Materia_Asesor, Correo_Asesor, Telefono_Asesor);
+            dispose();
+        }
     }//GEN-LAST:event_Registro_AsesorActionPerformed
 
     public static void main(String args[]) {

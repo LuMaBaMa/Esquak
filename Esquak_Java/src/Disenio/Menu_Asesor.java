@@ -1,30 +1,42 @@
 package Disenio;
+import Logica.Configuracion;
 import java.sql.*;
-import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 public class Menu_Asesor extends javax.swing.JFrame {
-    Logica.Configuracion conf = new Logica.Configuracion();
+    Configuracion conf = new Configuracion();
     int Cod = conf.getCod();
-    String Materia;
     public Menu_Asesor() {
-        try{
-            Logica.Coneccion conx = new Logica.Coneccion();
-            Connection con = null;
-            ResultSet rs = null;
-            PreparedStatement ps = null;
-            con = conx.conectar();
-            String sql = "SELECT * FROM asesores where id_asesor = (?)";
-            ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,Cod);
-            rs = ps.executeQuery();
-            
-            if(rs.next()){
-                Materia = rs.getString("as_materia");
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Error: "+e.toString());
-        }
         initComponents();
+        mostrarAsesorias("asesorias");
+    }
+    
+    public void mostrarAsesorias(String tabla){
+        String sql = "SELECT alumno, fecha, alu_nombre fecha FROM asesoria WHERE asesor = (?)";
+        Connection con = null;
+        Logica.Coneccion conx = new Logica.Coneccion();
+        con = conx.conectar();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Boleta");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Alumno");
+        Asesorias.setModel(modelo);
+        String[] datos = new String[3];
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,Cod);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                modelo.addRow(datos);
+            }
+        }catch(SQLException e){
+            System.out.println("Error: "+e.toString());
+        }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -34,19 +46,18 @@ public class Menu_Asesor extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         panel1 = new java.awt.Panel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         panel2 = new java.awt.Panel();
         Cerrar_Sesion_Asesor = new javax.swing.JButton();
         Revisar_Asesorias = new javax.swing.JButton();
         Subir_Material = new javax.swing.JButton();
         Informacion_Personal = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Asesorias = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 0));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         panel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -54,32 +65,24 @@ public class Menu_Asesor extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Bienvenido Asesor");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Materia "+Materia);
-
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(14, 14, 14))
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        panel2.setBackground(new java.awt.Color(255, 204, 0));
+        panel2.setBackground(new java.awt.Color(38, 45, 90));
 
         Cerrar_Sesion_Asesor.setBackground(new java.awt.Color(255, 0, 0));
         Cerrar_Sesion_Asesor.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,9 +133,9 @@ public class Menu_Asesor extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Asesorias.setBackground(new java.awt.Color(255, 255, 255));
+        Asesorias.setForeground(new java.awt.Color(0, 0, 0));
+        Asesorias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -140,15 +143,24 @@ public class Menu_Asesor extends javax.swing.JFrame {
                 "Boleta", "Fecha", "Alumno"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        Asesorias.setEnabled(false);
+        Asesorias.setRowHeight(30);
+        jScrollPane1.setViewportView(Asesorias);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -172,17 +184,18 @@ public class Menu_Asesor extends javax.swing.JFrame {
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
                         .addComponent(Revisar_Asesorias, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(29, 29, 29)
                         .addComponent(Subir_Material, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addComponent(Informacion_Personal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(43, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addGap(30, 30, 30))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,15 +260,14 @@ public class Menu_Asesor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Asesorias;
     private javax.swing.JButton Cerrar_Sesion_Asesor;
     private javax.swing.JButton Informacion_Personal;
     private javax.swing.JButton Revisar_Asesorias;
     private javax.swing.JButton Subir_Material;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;
     // End of variables declaration//GEN-END:variables

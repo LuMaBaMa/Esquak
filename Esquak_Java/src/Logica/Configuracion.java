@@ -1,6 +1,6 @@
 package Logica;
 public class Configuracion {
-    private int Cod;
+    private static int Cod;
 
     public int getCod() {
         return Cod;

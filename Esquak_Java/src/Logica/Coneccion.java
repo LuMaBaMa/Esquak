@@ -2,8 +2,8 @@ package Logica;
 import java.sql.*;
 public class Coneccion {
     static String url = "jdbc:mysql://localhost:3306/bd_esquak";
-    static String user = "root"; //Se modifica dependiendo tu equipo
-    static String pass = "1234"; //Se modifica dependiendo tu equipo
+    static String user = "root";
+    static String pass = "1234";
     
     public static Connection conectar(){
         Connection con = null;

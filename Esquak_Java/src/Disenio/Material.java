@@ -59,7 +59,7 @@ public class Material extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -98,9 +98,9 @@ public class Material extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel3.setBackground(new java.awt.Color(38, 45, 90));
 
-        Buscar.setBackground(new java.awt.Color(102, 0, 153));
+        Buscar.setBackground(new java.awt.Color(204, 0, 204));
         Buscar.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
         Buscar.setForeground(new java.awt.Color(255, 255, 255));
         Buscar.setText("Buscar");

@@ -50,9 +50,9 @@ public class Lista_Alumnos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(38, 45, 90));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,6 +90,7 @@ public class Lista_Alumnos extends javax.swing.JFrame {
         );
 
         Alumnos.setBackground(new java.awt.Color(255, 255, 255));
+        Alumnos.setForeground(new java.awt.Color(0, 0, 0));
         Alumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

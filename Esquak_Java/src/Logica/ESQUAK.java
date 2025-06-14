@@ -6,5 +6,4 @@ public class ESQUAK {
         Disenio.Principal menu = new Disenio.Principal();
         menu.setVisible(true);
     }
-    
 }
