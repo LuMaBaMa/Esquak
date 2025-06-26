@@ -213,7 +213,7 @@ public class Menu_Asesor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Informacion_PersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Informacion_PersonalActionPerformed
-        Info_Personal info = new Info_Personal();
+        Info_Asesor info = new Info_Asesor();
         info.setVisible(true);
         dispose();
     }//GEN-LAST:event_Informacion_PersonalActionPerformed
@@ -224,9 +224,6 @@ public class Menu_Asesor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_Cerrar_Sesion_AsesorActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -161,6 +161,7 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
             }
         });
         Asesorias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        Asesorias.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Asesorias.setEnabled(false);
         Asesorias.setGridColor(new java.awt.Color(0, 0, 0));
         Asesorias.setRowHeight(30);

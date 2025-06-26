@@ -19,10 +19,12 @@ public class Lista_Alumnos extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Num. Boleta");
         modelo.addColumn("Nombre");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Correo");
         modelo.addColumn("Contrasenia");
         Alumnos.setModel(modelo);
         
-        String[] datos = new String[3];
+        String[] datos = new String[5];
         
         try{
             st = con.createStatement();
@@ -31,6 +33,8 @@ public class Lista_Alumnos extends javax.swing.JFrame {
                 datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
                 datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
                 modelo.addRow(datos);
             }
         } catch(SQLException e){
@@ -96,14 +100,14 @@ public class Lista_Alumnos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Num. Boleta", "Nombre", "Contrasenia"
+                "Num. Boleta", "Nombre", "Telefono", "Correo", "Contrasenia"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

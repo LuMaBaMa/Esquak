@@ -52,6 +52,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
         Inscribir_Asesoria = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Asesorias = new javax.swing.JTable();
+        Informacion = new javax.swing.JButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -179,6 +180,17 @@ public class Menu_Alumno extends javax.swing.JFrame {
         Asesorias.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(Asesorias);
 
+        Informacion.setBackground(new java.awt.Color(0, 204, 204));
+        Informacion.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
+        Informacion.setForeground(new java.awt.Color(0, 0, 0));
+        Informacion.setText("Información Personal");
+        Informacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Informacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InformacionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -189,9 +201,10 @@ public class Menu_Alumno extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Revisar_Material, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Inscribir_Asesoria, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Revisar_Material, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Inscribir_Asesoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Informacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
@@ -202,11 +215,13 @@ public class Menu_Alumno extends javax.swing.JFrame {
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
+                        .addGap(27, 27, 27)
                         .addComponent(Inscribir_Asesoria, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
+                        .addGap(18, 18, 18)
                         .addComponent(Revisar_Material, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(90, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(Informacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
@@ -228,7 +243,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Revisar_MaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Revisar_MaterialActionPerformed
-        Material mat = new Material();
+        Material_Alumno mat = new Material_Alumno();
         mat.setVisible(true);
         dispose();
     }//GEN-LAST:event_Revisar_MaterialActionPerformed
@@ -244,6 +259,12 @@ public class Menu_Alumno extends javax.swing.JFrame {
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_Cerrar_Sesion_AlumnoActionPerformed
+
+    private void InformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformacionActionPerformed
+        Info_Alumno info = new Info_Alumno();
+        info.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_InformacionActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -280,6 +301,7 @@ public class Menu_Alumno extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Asesorias;
     private javax.swing.JButton Cerrar_Sesion_Alumno;
+    private javax.swing.JButton Informacion;
     private javax.swing.JButton Inscribir_Asesoria;
     private javax.swing.JButton Revisar_Material;
     private javax.swing.JFrame jFrame1;

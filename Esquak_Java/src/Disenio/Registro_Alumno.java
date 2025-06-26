@@ -77,7 +77,7 @@ public class Registro_Alumno extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Contraseña");
+        jLabel4.setText("Contraseña (No mayor a 10 caracteres)");
 
         Contrasenia_Alumno.setBackground(new java.awt.Color(255, 255, 255));
         Contrasenia_Alumno.setForeground(new java.awt.Color(0, 0, 0));
@@ -220,9 +220,12 @@ public class Registro_Alumno extends javax.swing.JFrame {
     }//GEN-LAST:event_Regresar_MenuActionPerformed
 
     private void Registro_AlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registro_AlumnoActionPerformed
+        int Contra = Contrasenia_Alumno.getText().length();
         if(Boleta_Alumno.getText().isEmpty() || Nombre_Alumno.getText().isEmpty() || Contrasenia_Alumno.getText().isEmpty()
                 || Telefono_Alumno.getText().isEmpty()||Correo_Alumno.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "No se han llenado todos los campos");
+        } else if(Contra > 10){
+            JOptionPane.showMessageDialog(null, "La contrasenia puede ser maximo de 10 caracteres");
         } else {
             Logica.Registro registro = new Logica.Registro();
             registro.reg_alumno(Boleta_Alumno,Nombre_Alumno,Telefono_Alumno,Correo_Alumno,Contrasenia_Alumno);

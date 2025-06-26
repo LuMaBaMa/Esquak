@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import Logica.Configuracion;
 public class Actualiza {
-    public static void Actualizar(JComboBox Materia_Asesor,JTextField Contrasenia_Asesor, 
+    public static void Actualizar_Asesor(JComboBox Materia_Asesor,JTextField Contrasenia_Asesor, 
             JTextField Correo_Asesor, JTextField Telefono_Asesor){
         Configuracion conf = new Configuracion();
         String sql = "UPDATE asesores SET as_contrasenia = (?), as_materia = (?), as_correo = (?), as_telefono = (?) WHERE id_asesor = (?)";
@@ -28,6 +28,35 @@ public class Actualiza {
             if(resultado == 1){
                 JOptionPane.showMessageDialog(null, "Los datos han sido actualizados");
                 Disenio.Menu_Asesor menu = new Disenio.Menu_Asesor();
+                menu.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Los datos han sid");
+            }
+        } catch(SQLException e){
+            System.out.println("Error: "+e.toString());
+        }
+    }
+    
+    public static void Actualizar_Alumno(JTextField Telefono_Alumno, JTextField Correo_Alumno, JTextField Contrasenia_Alumno){
+        Configuracion conf = new Configuracion();
+        String sql = "UPDATE alumnos SET alu_telefono = (?), alu_correo = (?), alu_contrasenia = (?) WHERE alu_boleta = (?)";
+        int resultado, Cod = conf.getCod();
+        Connection con = null;
+        Coneccion conx = new Coneccion();
+        con = conx.conectar();
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setString(1,Telefono_Alumno.getText());
+            ps.setString(2,Correo_Alumno.getText());
+            ps.setString(3,Contrasenia_Alumno.getText());
+            ps.setInt(4,Cod);
+            resultado = ps.executeUpdate();
+            
+            if(resultado == 1){
+                JOptionPane.showMessageDialog(null, "Los datos han sido actualizados");
+                Disenio.Menu_Alumno menu = new Disenio.Menu_Alumno();
                 menu.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Los datos han sid");

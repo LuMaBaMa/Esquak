@@ -1,10 +1,11 @@
-DROP DATABASE bd_esquak;
 CREATE DATABASE bd_esquak;
 USE bd_esquak;
 
 CREATE TABLE alumnos(
 alu_boleta int not null,
 alu_nombre char(70),
+alu_telefono varchar(15),
+alu_correo varchar(60),
 alu_contrasenia varchar(10),
 primary key (alu_boleta)
 );
@@ -44,6 +45,16 @@ foreign key (asesor) references asesores(id_asesor)
 
 DESCRIBE material;
 
+CREATE TABLE espera(
+materia char(50),
+alumno int,
+asesor int,
+foreign key (alumno) references alumnos(alu_boleta),
+foreign key (asesor) references asesores (id_asesor)
+);
+
+DESCRIBE espera;
+
 CREATE TABLE asesoria(
 num_asesoria int auto_increment,
 materia char(50),
@@ -57,10 +68,13 @@ foreign key (alumno) references alumnos(alu_boleta),
 foreign key (asesor) references asesores(id_asesor)
 );
 
+DESCRIBE asesoria;
+
+insert into asesoria(materia,fecha,alumno,alu_nombre,as_nombre,asesor) 
+values ('Geometría Analítica','2025-05-28',2022090074,'Luis Manuel','Oliver',12345);
 insert into administrador(id_admin, ad_nombre, ad_contrasenia) values
 (01234567,'mayoneso',012345);
 
 select * from administrador;
 select * from asesores;
 select * from alumnos;
-SELECT materia,fecha,as_nombre FROM asesoria WHERE alumno = 2022090074;

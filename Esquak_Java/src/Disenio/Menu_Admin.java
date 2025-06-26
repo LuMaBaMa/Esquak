@@ -60,6 +60,7 @@ public class Menu_Admin extends javax.swing.JFrame {
         Inscripciones.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
         Inscripciones.setForeground(new java.awt.Color(255, 255, 255));
         Inscripciones.setText("Alumnos y Asesores");
+        Inscripciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Inscripciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InscripcionesActionPerformed(evt);
@@ -70,11 +71,13 @@ public class Menu_Admin extends javax.swing.JFrame {
         Material.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
         Material.setForeground(new java.awt.Color(255, 255, 255));
         Material.setText("Revisar Material");
+        Material.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        Historial.setBackground(new java.awt.Color(153, 0, 204));
+        Historial.setBackground(new java.awt.Color(102, 102, 255));
         Historial.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
         Historial.setForeground(new java.awt.Color(255, 255, 255));
         Historial.setText("Historial de Asesorias");
+        Historial.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Historial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HistorialActionPerformed(evt);
@@ -89,11 +92,11 @@ public class Menu_Admin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(Inscripciones, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(Material, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(233, 233, 233)
+                .addGap(200, 200, 200)
                 .addComponent(Historial, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -105,9 +108,9 @@ public class Menu_Admin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Inscripciones, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Material, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(31, 31, 31)
                 .addComponent(Historial, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

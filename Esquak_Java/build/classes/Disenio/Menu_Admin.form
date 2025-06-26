@@ -47,12 +47,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                   <Component id="Inscripciones" min="-2" pref="212" max="-2" attributes="0"/>
-                  <EmptySpace pref="141" max="32767" attributes="0"/>
+                  <EmptySpace pref="77" max="32767" attributes="0"/>
                   <Component id="Material" min="-2" pref="200" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                   <Component id="Historial" min="-2" pref="231" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -67,9 +67,9 @@
                       <Component id="Inscripciones" alignment="3" min="-2" pref="95" max="-2" attributes="0"/>
                       <Component id="Material" alignment="3" min="-2" pref="95" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="Historial" min="-2" pref="95" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -147,6 +147,11 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Alumnos y Asesores"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InscripcionesActionPerformed"/>
@@ -164,12 +169,17 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Revisar Material"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="Historial">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="0" red="99" type="rgb"/>
+              <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Gill Sans MT" size="20" style="0"/>
@@ -178,6 +188,11 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Historial de Asesorias"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HistorialActionPerformed"/>

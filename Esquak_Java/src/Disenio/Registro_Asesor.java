@@ -119,7 +119,7 @@ public class Registro_Asesor extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Contraseña");
+        jLabel7.setText("Contraseña (No mayor a 10 caracteres)");
 
         Correo_Asesor.setBackground(new java.awt.Color(255, 255, 255));
         Correo_Asesor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -240,8 +240,11 @@ public class Registro_Asesor extends javax.swing.JFrame {
     }//GEN-LAST:event_RegresarActionPerformed
 
     private void Registro_AsesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registro_AsesorActionPerformed
+        int Contra = Contrasenia_Asesor.getText().length();
         if(Codigo_Asesor.getText().isEmpty() || Nombre_Asesor.getText().isEmpty() || Contrasenia_Asesor.getText().isEmpty() || Correo_Asesor.getText().isEmpty() || Telefono_Asesor.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "No se han llenado todos los campos");
+        } else if(Contra > 10){
+            JOptionPane.showMessageDialog(null, "La contraseña no puede ser mas de 10 caracteres");
         } else {
             Logica.Registro registro = new Logica.Registro();
             registro.reg_asesor(Codigo_Asesor, Nombre_Asesor, Contrasenia_Asesor, Materia_Asesor, Correo_Asesor, Telefono_Asesor);
