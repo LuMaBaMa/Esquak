@@ -1,6 +1,6 @@
 package Disenio;
 import java.sql.*;
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 public class Buscador_Asesorias extends javax.swing.JFrame {
 
@@ -15,13 +15,18 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
         Connection con = null;
         Logica.Coneccion conx = new Logica.Coneccion();
         con = conx.conectar();
+        
+        Asesorias.setDefaultRenderer(Object.class, new Render());
+        JButton Mostrar = new JButton("Mostrar");
+        Mostrar.setName("Mostrar");
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Matería");
         modelo.addColumn("Nombre");
         modelo.addColumn("Codigo");
+        modelo.addColumn(" ");
         Asesorias.setModel(modelo);
         
-        String[] datos = new String[3];
+        Object[] datos = new Object[4];
         
         try{
             ps = con.prepareStatement(sql);
@@ -32,10 +37,21 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
                 datos[0] = rs.getString(4);
                 datos[1] = rs.getString(2);
                 datos[2] = rs.getString(1);
+                datos[3] = Mostrar;
                 modelo.addRow(datos);
             }
         } catch(SQLException e){
             System.out.println("Error: "+e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+        
+        if(modelo.getRowCount()>0){
+            Asesorias.addRowSelectionInterval(0, 0);
         }
     }
 
@@ -142,14 +158,14 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Matería", "Nombre", "Código"
+                "Matería", "Nombre", "Código", ""
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -161,12 +177,21 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
             }
         });
         Asesorias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        Asesorias.setCellSelectionEnabled(true);
         Asesorias.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Asesorias.setEnabled(false);
         Asesorias.setGridColor(new java.awt.Color(0, 0, 0));
         Asesorias.setRowHeight(30);
         Asesorias.getTableHeader().setResizingAllowed(false);
         Asesorias.getTableHeader().setReorderingAllowed(false);
+        Asesorias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AsesoriasMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                AsesoriasMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(Asesorias);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -203,7 +228,7 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void RegresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresoActionPerformed
         Menu_Alumno menu = new Menu_Alumno();
         menu.setVisible(true);
@@ -213,6 +238,40 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         mostrarAsesorias("asesoria");
     }//GEN-LAST:event_BuscarActionPerformed
+
+    private void AsesoriasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AsesoriasMouseClicked
+        int column = Asesorias.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row  = evt.getY()/Asesorias.getRowHeight();
+        
+        if(row < Asesorias.getRowCount() && row >= 0 && column < Asesorias.getColumnCount() && column >= 0){
+            Asesorias.setRowSelectionInterval(row,row);
+            Object value = Asesorias.getValueAt(row,column);
+            if(value instanceof JButton){
+                ((JButton)value).doClick();
+                JButton boton = (JButton) value;
+                
+                //Eventos del código
+                int f = Asesorias.getSelectedRow();
+                if(Asesorias.getRowCount() == 0){
+                    System.out.println("No hay datos disponibles");
+                } else if(f != -1){
+                    String Prueba = Asesorias.getValueAt(f,2).toString();
+                    int Codigo = Integer.parseInt(Prueba);
+                    Logica.Configuracion conf = new Logica.Configuracion();
+                    conf.setBusqueda(Codigo);
+                    Solicitud sol = new Solicitud();
+                    sol.setVisible(true);
+                    dispose();
+                } else {
+                    System.out.println("No hay ninguna fila seleccionada");
+                }    
+            }
+        }
+    }//GEN-LAST:event_AsesoriasMouseClicked
+
+    private void AsesoriasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AsesoriasMousePressed
+
+    }//GEN-LAST:event_AsesoriasMousePressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

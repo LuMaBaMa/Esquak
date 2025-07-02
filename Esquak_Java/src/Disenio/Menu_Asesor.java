@@ -35,6 +35,12 @@ public class Menu_Asesor extends javax.swing.JFrame {
             }
         }catch(SQLException e){
             System.out.println("Error: "+e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
         
     }
@@ -115,6 +121,11 @@ public class Menu_Asesor extends javax.swing.JFrame {
         Revisar_Asesorias.setForeground(new java.awt.Color(255, 255, 255));
         Revisar_Asesorias.setText("Revisar Asesorias");
         Revisar_Asesorias.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Revisar_Asesorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Revisar_AsesoriasActionPerformed(evt);
+            }
+        });
 
         Subir_Material.setBackground(new java.awt.Color(51, 204, 0));
         Subir_Material.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
@@ -223,6 +234,12 @@ public class Menu_Asesor extends javax.swing.JFrame {
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_Cerrar_Sesion_AsesorActionPerformed
+
+    private void Revisar_AsesoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Revisar_AsesoriasActionPerformed
+        Asesorias_Solicitadas asesor = new Asesorias_Solicitadas();
+        asesor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Revisar_AsesoriasActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

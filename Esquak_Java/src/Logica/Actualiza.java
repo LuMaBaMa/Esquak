@@ -34,6 +34,12 @@ public class Actualiza {
             }
         } catch(SQLException e){
             System.out.println("Error: "+e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
     
@@ -63,6 +69,44 @@ public class Actualiza {
             }
         } catch(SQLException e){
             System.out.println("Error: "+e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    public void borrarSolicitud(){
+        Configuracion conf = new Configuracion();
+        int Cod = conf.getCod();
+        int bus = conf.getBusqueda();
+        String sql = "DELETE FROM solicitud WHERE asesor = (?) and alumno = (?)";
+        Connection con = null;
+        Coneccion conx = new Coneccion();
+        con = conx.conectar();
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1,Cod);
+            ps.setInt(2,bus);
+            int resultado = ps.executeUpdate();
+            
+            if(resultado == 1){
+                JOptionPane.showMessageDialog(null, "La asesoria se ha aceptado");
+                Disenio.Asesorias_Solicitadas asesor = new Disenio.Asesorias_Solicitadas();
+                asesor.setVisible(true);
+            }
+        }catch(SQLException e){
+            System.err.println(e);
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
 }

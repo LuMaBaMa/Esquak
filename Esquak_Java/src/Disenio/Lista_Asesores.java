@@ -21,7 +21,6 @@ public class Lista_Asesores extends javax.swing.JFrame {
         modelo.addColumn("Correo");
         modelo.addColumn("Telefono");
         Asesores.setModel(modelo);
-        
         String[] datos = new String[6];
         
         try{
@@ -39,6 +38,12 @@ public class Lista_Asesores extends javax.swing.JFrame {
             }
         } catch(SQLException e){
             JOptionPane.showMessageDialog(null,"Error" + e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
 

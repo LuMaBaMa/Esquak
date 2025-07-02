@@ -34,6 +34,12 @@ public class Menu_Alumno extends javax.swing.JFrame {
             }
         }catch(SQLException e){
             System.out.println("Error: "+ e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
 

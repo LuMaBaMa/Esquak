@@ -23,7 +23,6 @@ public class Lista_Alumnos extends javax.swing.JFrame {
         modelo.addColumn("Correo");
         modelo.addColumn("Contrasenia");
         Alumnos.setModel(modelo);
-        
         String[] datos = new String[5];
         
         try{
@@ -39,6 +38,12 @@ public class Lista_Alumnos extends javax.swing.JFrame {
             }
         } catch(SQLException e){
             JOptionPane.showMessageDialog(null,"Error" + e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
     @SuppressWarnings("unchecked")

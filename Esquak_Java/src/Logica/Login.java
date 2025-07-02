@@ -5,15 +5,15 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 public class Login {
     public void ValidaAlumno(JTextField Codigo, JPasswordField Contrasenia){
-        String contra = new String(Contrasenia.getPassword()), codg = Codigo.getText();
+        String contra = new String(Contrasenia.getPassword());
         int Cod = Integer.parseInt(Codigo.getText());
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection con = null;
+        Coneccion conx = new Coneccion();
+        con = conx.conectar();
+        String consulta = "select * from alumnos where alu_boleta = (?) and alu_contrasenia = (?)";
         try{
-            ResultSet rs = null;
-            PreparedStatement ps = null;
-            Connection con = null;
-            Coneccion conx = new Coneccion();
-            con = conx.conectar();
-            String consulta = "select * from alumnos where alumnos.alu_boleta = (?) and alumnos.alu_contrasenia = (?)";
             ps = con.prepareStatement(consulta);
             
             ps.setString(1,Codigo.getText());
@@ -28,24 +28,31 @@ public class Login {
                 Menu.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null,"El usuario es incorrecto");
+                Disenio.Login inicio = new Disenio.Login();
+                inicio.setVisible(true);
                 return;
             }
-            
         }catch(Exception e){
             System.out.println("No se puede ingresar");
             JOptionPane.showMessageDialog(null,"ERROR: "+e.toString());
             return;
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
     
     public void ValidaAsesor(JTextField Codigo, JPasswordField Contrasenia){
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection con = null;
+        Coneccion conx = new Coneccion();
+        con = conx.conectar();
+        String consulta = "select * from asesores where asesores.id_asesor = (?) and asesores.as_contrasenia = (?)";
         try{
-            ResultSet rs = null;
-            PreparedStatement ps = null;
-            Connection con = null;
-            Coneccion conx = new Coneccion();
-            con = conx.conectar();
-            String consulta = "select * from asesores where asesores.id_asesor = (?) and asesores.as_contrasenia = (?)";
             ps = con.prepareStatement(consulta);
             int Cod = Integer.parseInt(Codigo.getText());
             
@@ -62,21 +69,29 @@ public class Login {
                 Menu.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null,"El usuario es incorrecto");
+                Disenio.Login inicio = new Disenio.Login();
+                inicio.setVisible(true);
             }            
         }catch(Exception e){
             System.out.println("No se puede ingresar");
             System.out.println("Error: "+e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
     
     public void ValidaAdmin(JTextField Codigo, JPasswordField Contrasenia){
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection con = null;
+        Coneccion conx = new Coneccion();
+        con = conx.conectar();
+        String consulta = "select * from administrador where administrador.id_admin = (?) and administrador.ad_contrasenia = (?)";
         try{
-            ResultSet rs = null;
-            PreparedStatement ps = null;
-            Connection con = null;
-            Coneccion conx = new Coneccion();
-            con = conx.conectar();
-            String consulta = "select * from administrador where administrador.id_admin = (?) and administrador.ad_contrasenia = (?)";
             ps = con.prepareStatement(consulta);
             
             String contra = new String(Contrasenia.getPassword());
@@ -90,11 +105,19 @@ public class Login {
                 Menu.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null,"El usuario es incorrecto");
+                Disenio.Inicio_Admin inicio = new Disenio.Inicio_Admin();
+                inicio.setVisible(true);
             }
             
         }catch(Exception e){
             System.out.println("No se puede ingresar");
             JOptionPane.showMessageDialog(null,"ERROR: "+e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
 }

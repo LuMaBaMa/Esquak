@@ -13,13 +13,14 @@ public class Info_Alumno extends javax.swing.JFrame {
     }
     
     public void despliegueInfo(){
+        Logica.Coneccion conx = new Logica.Coneccion();
+        PreparedStatement ps = null;
+        Connection con = null;
+        ResultSet rs = null;
+        con = conx.conectar();
+        String sql = "SELECT * FROM alumnos WHERE alu_boleta = (?)";
+        
         try{
-            Logica.Coneccion conx = new Logica.Coneccion();
-            PreparedStatement ps = null;
-            Connection con = null;
-            ResultSet rs = null;
-            con = conx.conectar();
-            String sql = "SELECT * FROM alumnos WHERE alu_boleta = (?)";
             ps = con.prepareStatement(sql);
             
             ps.setInt(1,Cod);
@@ -41,6 +42,12 @@ public class Info_Alumno extends javax.swing.JFrame {
             
         }catch(SQLException e){
             System.out.println("Error: "+e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
 

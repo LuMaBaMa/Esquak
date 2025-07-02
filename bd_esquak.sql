@@ -37,7 +37,7 @@ CREATE TABLE material(
 materia char(60),
 num_material int auto_increment,
 nombre_archivo char(20),
-contenido blob,
+contenido mediumblob,
 asesor int,
 primary key(num_material),
 foreign key (asesor) references asesores(id_asesor) 
@@ -45,15 +45,17 @@ foreign key (asesor) references asesores(id_asesor)
 
 DESCRIBE material;
 
-CREATE TABLE espera(
+CREATE TABLE solicitud(
 materia char(50),
 alumno int,
+telefono varchar(15),
+correo varchar(60),
 asesor int,
 foreign key (alumno) references alumnos(alu_boleta),
 foreign key (asesor) references asesores (id_asesor)
 );
 
-DESCRIBE espera;
+DESCRIBE solicitud;
 
 CREATE TABLE asesoria(
 num_asesoria int auto_increment,
@@ -78,3 +80,5 @@ insert into administrador(id_admin, ad_nombre, ad_contrasenia) values
 select * from administrador;
 select * from asesores;
 select * from alumnos;
+select * from solicitud;
+select * from asesoria;

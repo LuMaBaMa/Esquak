@@ -1,7 +1,5 @@
 package Disenio;
 import java.sql.*;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
 public class Info_Asesor extends javax.swing.JFrame {
     public String as_nombre, as_materia, as_contrasenia, as_telefono, as_correo;
     Logica.Configuracion conf = new Logica.Configuracion();
@@ -12,13 +10,14 @@ public class Info_Asesor extends javax.swing.JFrame {
     }
     
     public void DespliegueInfo(){
+        Logica.Coneccion conx = new Logica.Coneccion();
+        Connection con = null;
+        con = conx.conectar();
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        String sql = "SELECT * FROM asesores where id_asesor = (?)";
+            
         try{
-            Logica.Coneccion conx = new Logica.Coneccion();
-            Connection con = null;
-            con = conx.conectar();
-            ResultSet rs = null;
-            PreparedStatement ps = null;
-            String sql = "SELECT * FROM asesores where id_asesor = (?)";
             ps = con.prepareStatement(sql);
             
             ps.setInt(1,Cod);
@@ -41,6 +40,12 @@ public class Info_Asesor extends javax.swing.JFrame {
             Telefono_Asesor.setText(as_telefono);
         }catch(Exception e){
             System.out.println("Error: "+e.toString());
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
     }
     
