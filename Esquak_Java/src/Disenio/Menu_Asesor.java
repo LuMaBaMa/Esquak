@@ -132,6 +132,11 @@ public class Menu_Asesor extends javax.swing.JFrame {
         Subir_Material.setForeground(new java.awt.Color(255, 255, 255));
         Subir_Material.setText("Subir Material");
         Subir_Material.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Subir_Material.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Subir_MaterialActionPerformed(evt);
+            }
+        });
 
         Informacion_Personal.setBackground(new java.awt.Color(0, 204, 204));
         Informacion_Personal.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
@@ -240,6 +245,12 @@ public class Menu_Asesor extends javax.swing.JFrame {
         asesor.setVisible(true);
         dispose();
     }//GEN-LAST:event_Revisar_AsesoriasActionPerformed
+
+    private void Subir_MaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Subir_MaterialActionPerformed
+        Material_Asesor mat = new Material_Asesor();
+        mat.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Subir_MaterialActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

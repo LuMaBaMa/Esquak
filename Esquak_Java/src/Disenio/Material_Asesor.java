@@ -2,15 +2,17 @@ package Disenio;
 import java.sql.*;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
-public class Material_Alumno extends javax.swing.JFrame {
-
-    public Material_Alumno() {
+public class Material_Asesor extends javax.swing.JFrame {
+    Logica.Configuracion conf = new Logica.Configuracion();
+    int Cod = conf.getCod();
+    
+    public Material_Asesor() {
         initComponents();
+        mostrarMaterial("material");
     }
     
     public void mostrarMaterial(String tabla){
-        String materia = Materia.getSelectedItem().toString();
-        String sql = "SELECT asesor,nombre_archivo,num_material FROM material WHERE materia = (?)";
+        String sql = "SELECT num_material,nombre_archivo FROM material WHERE asesor = (?)";
         PreparedStatement ps = null;
         Connection con = null;
         Logica.Coneccion conx = new Logica.Coneccion();
@@ -19,10 +21,12 @@ public class Material_Alumno extends javax.swing.JFrame {
         Material.setDefaultRenderer(Object.class, new Render());
         JButton Mostrar = new JButton();
         Mostrar.setName("Mostrar");
+        JButton Borrar = new JButton();
+        Borrar.setName("Borrar");
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Autor");
-        modelo.addColumn("Nombre");
         modelo.addColumn("Numero");
+        modelo.addColumn("Titulo");
+        modelo.addColumn(" ");
         modelo.addColumn(" ");
         Material.setModel(modelo);
         
@@ -30,14 +34,14 @@ public class Material_Alumno extends javax.swing.JFrame {
         
         try{
             ps = con.prepareStatement(sql);
-            ps.setString(1,materia);
+            ps.setInt(1,Cod);
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
                 datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
-                datos[2] = rs.getString(3);
-                datos[3] = Mostrar;
+                datos[2] = Mostrar;
+                datos[3] = Borrar;
                 modelo.addRow(datos);
             }
         } catch(SQLException e){
@@ -50,6 +54,7 @@ public class Material_Alumno extends javax.swing.JFrame {
             }
         }
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -57,10 +62,8 @@ public class Material_Alumno extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        Subir = new javax.swing.JButton();
         Regreso = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        Buscar = new javax.swing.JButton();
-        Materia = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         Material = new javax.swing.JTable();
 
@@ -68,13 +71,18 @@ public class Material_Alumno extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(38, 45, 90));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Revisar Material");
+        jLabel1.setText("Material del Asesor");
 
-        Regreso.setBackground(new java.awt.Color(204, 0, 0));
+        Subir.setBackground(new java.awt.Color(153, 0, 102));
+        Subir.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
+        Subir.setForeground(new java.awt.Color(255, 255, 255));
+        Subir.setText("Subir Material");
+
+        Regreso.setBackground(new java.awt.Color(153, 0, 0));
         Regreso.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
         Regreso.setForeground(new java.awt.Color(255, 255, 255));
         Regreso.setText("Regresar");
@@ -89,57 +97,22 @@ public class Material_Alumno extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Regreso, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(Subir, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Regreso, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Regreso, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        jPanel3.setBackground(new java.awt.Color(38, 45, 90));
-
-        Buscar.setBackground(new java.awt.Color(204, 0, 204));
-        Buscar.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
-        Buscar.setForeground(new java.awt.Color(255, 255, 255));
-        Buscar.setText("Buscar");
-        Buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarActionPerformed(evt);
-            }
-        });
-
-        Materia.setBackground(new java.awt.Color(255, 255, 255));
-        Materia.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        Materia.setForeground(new java.awt.Color(0, 0, 0));
-        Materia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una materia", "Algebra", "Geometría y Trigonometría", "Geometría Analítica", "Calculo Diferencial", "Calculo Integral", "Probabilidad y Estadística", "Física I", "Física II", "Física III", "Física IV", "Química I", "Química II", "Química III", "Química IV" }));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(Materia, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(Materia))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(Subir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Regreso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -150,11 +123,11 @@ public class Material_Alumno extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Autor", "Nombre", "Numero", ""
+                "Numero", "Titulo", "", ""
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
@@ -168,11 +141,6 @@ public class Material_Alumno extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        Material.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        Material.setCellSelectionEnabled(true);
-        Material.setEnabled(false);
-        Material.setGridColor(new java.awt.Color(0, 0, 0));
-        Material.setRowHeight(30);
         Material.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 MaterialMouseClicked(evt);
@@ -185,7 +153,6 @@ public class Material_Alumno extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
@@ -196,9 +163,7 @@ public class Material_Alumno extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,14 +181,10 @@ public class Material_Alumno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresoActionPerformed
-        Menu_Alumno menu = new Menu_Alumno();
+        Menu_Asesor menu = new Menu_Asesor();
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_RegresoActionPerformed
-
-    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        mostrarMaterial("material");
-    }//GEN-LAST:event_BuscarActionPerformed
 
     private void MaterialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaterialMouseClicked
         int column = Material.getColumnModel().getColumnIndexAtX(evt.getX());
@@ -236,19 +197,22 @@ public class Material_Alumno extends javax.swing.JFrame {
                 ((JButton)value).doClick();
                 JButton boton = (JButton) value;
                 
-                //Eventos del código
-                int f = Material.getSelectedRow();
-                if(Material.getRowCount() == 0){
-                    System.out.println("No hay datos disponibles");
-                } else if(f != -1){
-                    String Prueba = Material.getValueAt(f,2).toString();
-                    int Codigo = Integer.parseInt(Prueba);
-                    Logica.Configuracion conf = new Logica.Configuracion();
-                    conf.setBusqueda(Codigo);
-                    Logica.Material mat = new Logica.Material();
-                    mat.mostrarArchivo();
-                } else {
-                    System.out.println("No hay ninguna fila seleccionada");
+                if(boton.getName().equals("Mostrar")){
+                    int f = Material.getSelectedRow();
+                    if(Material.getRowCount() == 0){
+                        System.out.println("No hay datos disponibles");
+                    } else if(f != -1){
+                        String Prueba = Material.getValueAt(f,2).toString();
+                        int Codigo = Integer.parseInt(Prueba);
+                        Logica.Configuracion conf = new Logica.Configuracion();
+                        conf.setBusqueda(Codigo);
+                        Logica.Material mat = new Logica.Material();
+                        mat.mostrarArchivo();
+                    } else {
+                        System.out.println("No hay ninguna fila seleccionada");
+                    }
+                }else if(boton.getName().equals("Borrar")){
+                    
                 }
             }
         }
@@ -268,34 +232,31 @@ public class Material_Alumno extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Material_Alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Material_Asesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Material_Alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Material_Asesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Material_Alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Material_Asesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Material_Alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Material_Asesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Material_Alumno().setVisible(true);
+                new Material_Asesor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Buscar;
-    private javax.swing.JComboBox<String> Materia;
     private javax.swing.JTable Material;
     private javax.swing.JButton Regreso;
+    private javax.swing.JButton Subir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

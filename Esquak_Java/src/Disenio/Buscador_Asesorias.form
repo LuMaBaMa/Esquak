@@ -49,9 +49,9 @@
               <Component id="jPanel2" max="32767" attributes="0"/>
               <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="615" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -179,21 +179,22 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="14">
-                    <StringItem index="0" value="Algebra"/>
-                    <StringItem index="1" value="Geometr&#xed;a y Trigonometr&#xed;a"/>
-                    <StringItem index="2" value="Geometr&#xed;a Anal&#xed;tica"/>
-                    <StringItem index="3" value="Calculo Diferencial"/>
-                    <StringItem index="4" value="Calculo Integral"/>
-                    <StringItem index="5" value="Probabilidad y Estad&#xed;stica"/>
-                    <StringItem index="6" value="F&#xed;sica I"/>
-                    <StringItem index="7" value="F&#xed;sica II"/>
-                    <StringItem index="8" value="F&#xed;sica III"/>
-                    <StringItem index="9" value="F&#xed;sica IV"/>
-                    <StringItem index="10" value="Qu&#xed;mica I"/>
-                    <StringItem index="11" value="Qu&#xed;mica II"/>
-                    <StringItem index="12" value="Qu&#xed;mica III"/>
-                    <StringItem index="13" value="Qu&#xed;mica IV"/>
+                  <StringArray count="15">
+                    <StringItem index="0" value="Seleccione una materia"/>
+                    <StringItem index="1" value="Algebra"/>
+                    <StringItem index="2" value="Geometr&#xed;a y Trigonometr&#xed;a"/>
+                    <StringItem index="3" value="Geometr&#xed;a Anal&#xed;tica"/>
+                    <StringItem index="4" value="Calculo Diferencial"/>
+                    <StringItem index="5" value="Calculo Integral"/>
+                    <StringItem index="6" value="Probabilidad y Estad&#xed;stica"/>
+                    <StringItem index="7" value="F&#xed;sica I"/>
+                    <StringItem index="8" value="F&#xed;sica II"/>
+                    <StringItem index="9" value="F&#xed;sica III"/>
+                    <StringItem index="10" value="F&#xed;sica IV"/>
+                    <StringItem index="11" value="Qu&#xed;mica I"/>
+                    <StringItem index="12" value="Qu&#xed;mica II"/>
+                    <StringItem index="13" value="Qu&#xed;mica III"/>
+                    <StringItem index="14" value="Qu&#xed;mica IV"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -239,7 +240,7 @@
                   <Table columnCount="4" rowCount="0">
                     <Column editable="false" title="Mater&#xed;a" type="java.lang.String"/>
                     <Column editable="false" title="Nombre" type="java.lang.String"/>
-                    <Column editable="false" title="C&#xf3;digo" type="java.lang.String"/>
+                    <Column editable="false" title="Codigo" type="java.lang.String"/>
                     <Column editable="false" title="" type="java.lang.Object"/>
                   </Table>
                 </Property>

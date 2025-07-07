@@ -41,7 +41,7 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
                 modelo.addRow(datos);
             }
         } catch(SQLException e){
-            System.out.println("Error: "+e.toString());
+            System.err.println(e);
         }finally{
             try{
                 con.close();
@@ -118,7 +118,7 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
         Materia.setBackground(new java.awt.Color(255, 255, 255));
         Materia.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         Materia.setForeground(new java.awt.Color(0, 0, 0));
-        Materia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Algebra", "Geometría y Trigonometría", "Geometría Analítica", "Calculo Diferencial", "Calculo Integral", "Probabilidad y Estadística", "Física I", "Física II", "Física III", "Física IV", "Química I", "Química II", "Química III", "Química IV" }));
+        Materia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una materia", "Algebra", "Geometría y Trigonometría", "Geometría Analítica", "Calculo Diferencial", "Calculo Integral", "Probabilidad y Estadística", "Física I", "Física II", "Física III", "Física IV", "Química I", "Química II", "Química III", "Química IV" }));
 
         Buscar.setBackground(new java.awt.Color(204, 0, 204));
         Buscar.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
@@ -158,7 +158,7 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Matería", "Nombre", "Código", ""
+                "Matería", "Nombre", "Codigo", ""
             }
         ) {
             Class[] types = new Class [] {
@@ -201,9 +201,9 @@ public class Buscador_Asesorias extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
-                .addGap(33, 33, 33))
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

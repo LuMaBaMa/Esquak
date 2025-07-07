@@ -261,6 +261,9 @@ public class Menu_Alumno extends javax.swing.JFrame {
     }//GEN-LAST:event_Inscribir_AsesoriaActionPerformed
 
     private void Cerrar_Sesion_AlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_Sesion_AlumnoActionPerformed
+        Logica.Configuracion conf = new Logica.Configuracion();
+        conf.setCod(0);
+        conf.setBusqueda(0);
         Principal menu = new Principal();
         menu.setVisible(true);
         dispose();
