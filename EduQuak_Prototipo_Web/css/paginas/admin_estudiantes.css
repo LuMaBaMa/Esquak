@@ -1,0 +1,86 @@
+/* ====== CONTENEDOR GENERAL ====== */
+.contenido {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* ====== TÍTULO ====== */
+.titulo-estudiantes {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-estudiantes h2 {
+    background: #1A6DDA;
+    color: white;
+    display: inline-block;
+    padding: 14px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(26, 109, 218, 0.25);
+    font-size: 20px;
+}
+
+/* ====== TABLA ====== */
+.tabla-estudiantes {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* ENCABEZADOS */
+.tabla-estudiantes thead tr {
+    background: #1A6DDA;
+}
+
+.tabla-estudiantes th {
+    color: white;
+    padding: 14px 20px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* CUERPO */
+.tabla-estudiantes td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+}
+
+.tabla-estudiantes tr:last-child td {
+    border-bottom: none;
+}
+
+/* Alternancia fila */
+.tabla-estudiantes tbody tr:nth-child(odd) {
+    background: #f8f9fb;
+}
+
+/* ====== BOTÓN ELIMINAR ====== */
+.btn-eliminar {
+    background: #E53935;
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn-eliminar:hover {
+    background: #c62828;
+}
+
+/* ====== RESPONSIVE ====== */
+@media(max-width: 900px) {
+    .tabla-estudiantes th,
+    .tabla-estudiantes td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

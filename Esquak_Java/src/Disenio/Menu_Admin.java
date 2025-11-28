@@ -128,6 +128,9 @@ public class Menu_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        Logica.Configuracion conf = new Logica.Configuracion();
+        conf.setCod(0);
+        conf.setBusqueda(0);
         Principal menu = new Principal();
         menu.setVisible(true);
         dispose();

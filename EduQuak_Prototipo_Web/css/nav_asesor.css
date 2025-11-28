@@ -1,0 +1,55 @@
+/* === NAV ESPECIAL PARA ASESOR === */
+
+.nav-asesor {
+    width: 100%;
+    background: #ffffff;
+    padding: 15px 40px;
+    border-bottom: 2px solid #e6eef9;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Lado izquierdo */
+.nav-asesor .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-asesor .logo img {
+    width: 55px;
+    height: auto;
+}
+
+.nav-asesor .logo h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1A6DDA;
+}
+
+/* Lado derecho (iconos + notificaciones) */
+.nav-asesor nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* Iconos */
+.nav-asesor .icono {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nav-asesor .icono:hover {
+    transform: scale(1.12);
+}
+
+/* Logout */
+.nav-asesor .salir {
+    width: 30px;
+}

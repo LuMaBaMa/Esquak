@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuak - Panel del Asesor</title>
+  <link rel="stylesheet" href="../css/estructura.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/paginas/asesor.css">
+  <link rel="stylesheet" href="../css/nav_asesor.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="nav-asesor">
+    <div class="logo">
+      <img src="../img/logo.png" alt="Logo EduQuak">
+      <h1>EduQuak</h1>
+    </div>
+
+    <nav>
+      <a href="notificaciones_asesor.html"><img src="../img/iconos/notificaciones.png" alt="Notificaciones" class="icono"></a>
+      <a href="perfil_asesor.html"><img src="../img/iconos/perfil.png" alt="Perfil" class="icono"></a>
+      <a href="../inicio_sesion.html"><img src="../img/iconos/logout.png" class="icono salir" alt="Cerrar sesión"></a>
+    </nav>
+</header>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-asesor">
+
+    <!-- Bienvenida -->
+    <section class="bienvenida">
+      <h2>Bienvenido <span>“Nombre asesor”</span></h2>
+      <p>Gestiona tus asesorías, revisa solicitudes y comparte materiales con tus estudiantes.</p>
+    </section>
+
+    <!-- Asesorías Programadas -->
+    <section class="asesorias">
+      <div class="titulo-boton">
+        <h3>Asesorías Programadas</h3>
+        <a href="asesor_asesorias.html"><button class="btn-nueva">Ver todas las asesorias</button></a>
+      </div>
+
+      <table class="tabla-asesorias">
+        <thead>
+          <tr>
+            <th>Materia</th>
+            <th>Fecha</th>
+            <th>Estudiante</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Física</td>
+            <td>07/11/2025</td>
+            <td>Oscar Bautista</td>
+            <td><span class="pendiente">Pendiente</span></td>
+          </tr>
+          <tr>
+            <td>Programación</td>
+            <td>09/11/2025</td>
+            <td>Laura Díaz</td>
+            <td><span class="confirmada">Confirmada</span></td>
+          </tr>
+          <tr>
+            <td>Álgebra</td>
+            <td>11/11/2025</td>
+            <td>Marcos Pérez</td>
+            <td><span class="pendiente">Pendiente</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Accesos Rápidos -->
+    <section class="accesos">
+      <a href="subir_material.html"><div class="card">
+        <img src="../img/iconos/material.png" alt="Materiales">
+        <h4>Subir Material</h4>
+        <p>Comparte guías, presentaciones o apuntes con tus alumnos.</p>
+      </div>
+      </a>
+
+      <a href="subir_cuestionario.html"><div class="card">
+        <img src="../img/iconos/cuestionarios.png" alt="Solicitudes">
+        <h4>Subir cuestionarios</h4>
+        <p>Comparte ejercicios a tus alumnos.</p>
+      </div>
+      </a>
+    </section>
+
+    <!-- Materias Asignadas -->
+    <section class="subjects">
+      <h2>Materias populares</h2>
+      <div class="grid-materias">
+        <div class="algebra">Álgebra</div>
+        <div class="fisica">Física</div>
+        <div class="programacion">Programación</div>
+        <div class="geometria">Geometría</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <p><strong>EduQuak</strong> — La plataforma que conecta estudiantes y asesores para impulsar el aprendizaje.<br>
+      Aprende, enseña y crece con nosotros.</p>
+
+      <div class="footer-links">
+        <h4>Explora</h4>
+        <a href="#">Inicio</a>
+        <a href="#">Asesorías</a>
+        <a href="#">Materiales</a>
+        <a href="#">Contacto</a>
+      </div>
+
+      <p class="copyright">
+        © 2025 EduQuak — Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

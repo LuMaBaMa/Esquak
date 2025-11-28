@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+</head>
+
+<meta charset="UTF-8">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/estructura.css">
+  <link rel="stylesheet" href="../css/paginas/alumno.css">
+  <link rel="stylesheet" href="../css/paginas/perfil_alumno.css">
+
+<body>
+<header class="navbar">
+    <div class="navbar-left">
+        <img src="../img/logo.png" class="logo">
+        <span class="titulo">EduQuak</span>
+    </div>
+
+    <div class="nav-icons">
+        <a href="principal_alumno.html">
+            <img src="../img/back.png" class="icon">
+        </a>
+        <a href="../index.html">
+            <img src="../img/home.png" class="icon">
+        </a>
+    </div>
+</header>
+    <main class="contenido">
+
+        <h1 class="titulo-seccion">Información estudiante</h1>
+
+        <div class="perfil-contenedor">
+
+            <!-- Lado izquierdo -->
+            <div class="perfil-izq">
+                <img src="../img/iconos/foto.png" class="avatar" alt="Foto del estudiante">
+
+                <button class="btn-actualizar">Actualizar Datos</button>
+            </div>
+
+            <!-- Lado derecho -->
+            <div class="perfil-der">
+                <p class="label">Número de teléfono:</p>
+                <p class="dato">5555-5555-5555</p>
+
+                <p class="label">Correo Electrónico:</p>
+                <p class="dato">alumno@ejemplo.com</p>
+            </div>
+
+        </div>
+
+        <button class="btn-eliminar" onclick="confirmarEliminacion()">Eliminar cuenta</button>
+
+    </main>
+
+    <script>
+        function confirmarEliminacion() {
+            let confirmacion = confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.");
+            if (confirmacion) {
+                alert("Tu cuenta ha sido eliminada correctamente.");
+                window.location.href = "../index.html";
+            }
+        }
+    </script>
+    <footer>
+        <div class="footer-content">
+            <p><strong>EduQuak</strong> — La plataforma que conecta estudiantes y asesores para impulsar el
+                aprendizaje.<br>
+                Aprende, enseña y crece con nosotros.</p>
+
+            <div class="footer-links">
+                <h4>Explora</h4>
+                <a href="#">Inicio</a>
+                <a href="#">Asesorías</a>
+                <a href="#">Convertirte en asesor</a>
+                <a href="#">Contacto</a>
+            </div>
+
+            <p class="copyright">
+                © 2025 EduQuak — Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

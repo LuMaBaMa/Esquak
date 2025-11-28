@@ -1,0 +1,106 @@
+.contenido {
+    padding: 40px 80px;
+}
+
+.titulo-seccion {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* Contenedor principal */
+.perfil-contenedor {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Panel izquierdo */
+.perfil-izq {
+    text-align: center;
+    background: #f3f3f3;
+    padding: 30px 40px;
+    border-radius: 16px;
+}
+
+.avatar {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.btn-actualizar {
+    background: #a7d0ff;
+    color: black;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-actualizar:hover {
+    opacity: 0.85;
+}
+
+/* Panel derecho */
+.perfil-der {
+    background: #e6e6e6;
+    padding: 30px 40px;
+    border-radius: 16px;
+    width: 420px;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.dato {
+    margin-bottom: 25px;
+}
+
+.btn-eliminar {
+    background: #b32121;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-eliminar:hover {
+    background: #8f1919;
+}
+
+/* Iconos nav */
+.nav-icons {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    display: flex;
+    gap: 25px;
+}
+
+.icon {
+    width: 32px;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.footer h4 {
+    margin-bottom: 10px;
+}
+
+.footer p {
+    opacity: 0.85;
+    line-height: 1.4;
+}

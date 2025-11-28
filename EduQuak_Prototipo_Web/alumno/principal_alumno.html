@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuak - Panel del Estudiante</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/estructura.css">
+  <link rel="stylesheet" href="../css/paginas/alumno.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="navbar-left">
+        <img src="../img/logo.png" class="logo">
+        <span class="titulo">EduQuak</span>
+    </div>
+
+    <div class="nav-icons">
+        <a href="buscar_asesoria.html">
+            <img src="../img/iconos/buscar.png" class="icon" alt="Buscar">
+        </a>
+
+        <a href="perfil_alumno.html">
+            <img src="../img/iconos/perfil.png" class="icon" alt="Perfil">
+        </a>
+
+        <a href="../inicio_sesion.html">
+            <img src="../img/iconos/logout.png" class="icon salir" alt="Cerrar sesión">
+        </a>
+    </div>
+</header>
+
+
+  <!-- SECCIÓN PRINCIPAL -->
+  <main class="main-alumno">
+
+    <!-- Bienvenida -->
+    <section class="bienvenida">
+      <h2>Bienvenido <span>“Nombre estudiante”</span></h2>
+      <p>Administra tus asesorías, consulta materiales y mantén tu aprendizaje al día.</p>
+    </section>
+
+    <!-- Tabla de próximas asesorías -->
+    <section class="asesorias">
+      <div class="titulo-boton">
+        <h3>Próximas Asesorías</h3>
+        <a href="buscar_asesoria.html">
+          <button class="btn-inscribir">Inscribir nueva asesoría</button>
+        </a>
+
+      </div>
+
+      <table class="tabla-asesorias">
+        <thead>
+          <tr>
+            <th>Materia</th>
+            <th>Fecha</th>
+            <th>Asesor</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Matemáticas</td>
+            <td>07/11/2025</td>
+            <td>Laura Gómez</td>
+            <td><span class="pendiente">Pendiente</span></td>
+          </tr>
+          <tr>
+            <td>Programación</td>
+            <td>09/11/2025</td>
+            <td>Carlos Ruiz</td>
+            <td><span class="confirmada">Confirmada</span></td>
+          </tr>
+          <tr>
+            <td>Matemáticas</td>
+            <td>11/11/2025</td>
+            <td>Laura Gómez</td>
+            <td><span class="pendiente">Pendiente</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Material y Cuestionarios -->
+    <section class="accesos">
+      <a href="buscar_material.html">
+        <div class="card">
+          <img src="../img/iconos/material.png" alt="Icono material">
+          <h4>Material</h4>
+          <p>Refuerza tus conocimientos.</p>
+        </div>
+      </a>
+
+      <a href="vista_cuestionario.html">
+        <div class="card">
+          <img src="../img/iconos/cuestionarios.png" alt="Icono cuestionarios">
+          <h4>Cuestionarios</h4>
+          <p>Resuelve desafíos y practica lo aprendido.</p>
+        </div>
+      </a>
+    </section>
+
+    <!-- Materias recurrentes -->
+    <section class="subjects">
+      <h2>Materias recurrentes</h2>
+      <div class="grid-materias">
+        <div class="algebra">Álgebra</div>
+        <div class="fisica">Física</div>
+        <div class="quimica">Química</div>
+        <div class="ingles">Inglés</div>
+        <div class="geometria">Geometría</div>
+        <div class="trigonometria">Trigonometría</div>
+        <div class="calculo">Cálculo</div>
+        <div class="espanol">Español</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <p><strong>EduQuak</strong> — La plataforma que conecta estudiantes y asesores para impulsar el aprendizaje.<br>
+        Aprende, enseña y crece con nosotros.</p>
+
+      <div class="footer-links">
+        <h4>Explora</h4>
+        <a href="#">Inicio</a>
+        <a href="#">Asesorías</a>
+        <a href="#">Convertirte en asesor</a>
+        <a href="#">Contacto</a>
+      </div>
+
+      <p class="copyright">
+        © 2025 EduQuak — Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>

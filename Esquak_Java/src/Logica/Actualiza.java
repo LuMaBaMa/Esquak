@@ -29,8 +29,6 @@ public class Actualiza {
                 JOptionPane.showMessageDialog(null, "Los datos han sido actualizados");
                 Disenio.Menu_Asesor menu = new Disenio.Menu_Asesor();
                 menu.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null, "Los datos han sid");
             }
         } catch(SQLException e){
             System.out.println("Error: "+e.toString());

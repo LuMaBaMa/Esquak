@@ -1,0 +1,167 @@
+/* CABECERA */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-bottom: 2px solid var(--claro);
+  padding: 20px 80px;
+}
+
+/* ==== ARREGLA EL HEADER DEL BUSCADOR ==== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 60px;        /* antes estaba enorme, ahora fijo */
+    height: auto;
+}
+
+.titulo {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.navbar-right a {
+    color: #1A6DDA;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.navbar-right a:hover {
+    text-decoration: underline;
+}
+
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo img {
+  width: 40px;
+  height: 40px;
+}
+
+header .logo h1 {
+  color: var(--primario);
+  font-size: 22px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+header nav button {
+  background-color: var(--primario);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radio);
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+header nav button:hover {
+  background-color: var(--primario-oscuro);
+}
+
+/* PIE DE PÁGINA */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+footer h4 {
+  color: var(--claro);
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: var(--claro);
+  display: block;
+  margin: 4px 0;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer .copyright {
+  color: #bbb;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* CONTENEDOR GENERAL */
+main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 60px 5%;
+}
+/* NAVBAR uniforme para TODAS las páginas */
+.navbar {
+    width: 100%;
+    background: #ffffff;
+    padding: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e6eef9;
+}
+
+/* Logo + texto */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 55px;     /* MISMO tamaño exacto que el panel alumno */
+}
+
+.titulo {
+    font-size: 26px;
+    font-weight: 600;
+    color: #1A6DDA;
+}
+
+
+/* Botón Regresar (manteniendo coherencia visual) */
+.navbar-right .regresar-btn {
+    font-size: 18px;
+    color: #1A6DDA;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.navbar-right .regresar-btn:hover {
+    color: #0f4fb8;
+    opacity: 0.8;
+}
+
+/* Espacio entre el navbar y el contenido */
+.contenedor {
+    margin-top: 60px; /* lo baja para que quede consistente */
+}

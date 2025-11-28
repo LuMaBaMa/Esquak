@@ -1,0 +1,167 @@
+/* ====== BIENVENIDA ====== */
+.bienvenida {
+  background: #1A6DDA;
+  color: #fff;
+  border-radius: 12px;
+  padding: 30px 60px;
+  max-width: 900px;
+  margin: 60px auto 40px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(26, 109, 218, 0.3);
+}
+
+.bienvenida h2 span {
+  font-weight: 600;
+}
+
+.bienvenida p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* ====== TABLA ====== */
+.asesorias {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.titulo-boton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.btn-nueva {
+  background: #2ECC71;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-nueva:hover {
+  background: #27AE60;
+}
+
+
+.tabla-asesorias {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tabla-asesorias th {
+  background: #1A6DDA;
+  color: white;
+  padding: 14px;
+  font-weight: 500;
+}
+
+.tabla-asesorias td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.pendiente {
+  background: #FFA726;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.confirmada {
+  background: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* ====== ACCESOS ====== */
+.accesos {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 80px auto;
+}
+
+.card {
+  background: #EAF4FF;
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(26,109,218,0.2);
+}
+
+.card img {
+  width: 70px;
+  margin-bottom: 15px;
+}
+
+.card h4 {
+  font-size: 18px;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+/* ====== MATERIAS ====== */
+.subjects {
+  text-align: center;
+  padding: 80px 7%;
+  background: #fff;
+}
+
+.subjects h2 {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.grid-materias {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.grid-materias div {
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  padding: 50px 0;
+  font-size: 18px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.grid-materias div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* COLORES */
+.algebra { background-color: #FFA726; }
+.fisica { background-color: #64B5F6; }
+.programacion { background-color: #4DB6AC; }
+.geometria { background-color: #BA68C8; }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px) {
+  .grid-materias { grid-template-columns: repeat(2, 1fr); }
+  .accesos { flex-wrap: wrap; gap: 30px; }
+}
+
+@media (max-width: 768px) {
+  .bienvenida { text-align: center; padding: 25px; }
+  .tabla-asesorias th, .tabla-asesorias td { font-size: 14px; }
+  .grid-materias { grid-template-columns: 1fr; }
+}

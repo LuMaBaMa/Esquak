@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil del Asesor</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/estructura.css">
+<link rel="stylesheet" href="../css/nav_asesor.css">   <!-- ESTE -->
+<link rel="stylesheet" href="../css/paginas/perfil_asesor.css">
+
+
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <header class="nav-asesor">
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo EduQuak">
+        <h1>EduQuak</h1>
+    </div>
+
+    <nav>
+        <a href="principal_asesor.html"><img src="../img/iconos/back.png" class="icono" alt="Regresar"></a>
+    </nav>
+</header>
+
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+        <h1 class="titulo-seccion">Información Asesor</h1>
+
+        <div class="perfil-contenedor">
+
+            <!-- IZQUIERDA -->
+            <div class="perfil-izq">
+                <img src="../img/user_big.png" class="avatar">
+                <button class="btn-actualizar">Actualizar Datos</button>
+            </div>
+
+            <!-- DERECHA -->
+            <div class="perfil-der">
+                <p class="label">Número de teléfono:</p>
+                <p class="dato">5555-5555-5555</p>
+
+                <p class="label">Correo Electrónico:</p>
+                <p class="dato">maestro@ejemplo.com</p>
+
+                <p class="label">Materia:</p>
+                <p class="dato">Materia que asesora</p>
+
+                <button class="btn-eliminar" onclick="confirmarEliminacion()">Eliminar cuenta</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div>
+            <h4>EduQuak</h4>
+            <p>La plataforma que conecta estudiantes y asesores para impulsar el aprendizaje.<br>
+            Aprende, enseña y crece con nosotros.</p>
+        </div>
+
+        <div>
+            <h4>Explora</h4>
+            <p>- Inicio<br>
+               - Asesorías<br>
+               - Convertirte en asesor<br>
+               - Contacto</p>
+        </div>
+
+        <div>
+            <h4>© 2025 EduQuak — Todos los derechos reservados.</h4>
+        </div>
+    </footer>
+
+    <script>
+        function confirmarEliminacion() {
+            let conf = confirm("¿Seguro que deseas eliminar tu cuenta? Esta acción es irreversible.");
+            if (conf) {
+                alert("Cuenta eliminada correctamente.");
+                window.location.href = "../index.html";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* ====== CONTENIDO GENERAL ====== */
+
+.contenido {
+    padding: 40px 80px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* ====== GRID PRINCIPAL (DOS COLUMNAS) ====== */
+
+.grid-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+/* ====== FORMULARIO ====== */
+
+.form-container {
+    background: #f7f7f7;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.subtitulo {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.formulario label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+}
+
+.formulario input[type="text"],
+.formulario input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.btn-subir {
+    background: #1A6DDA;
+    color: white;
+    padding: 12px 40px;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-subir:hover {
+    background: #0f4dac;
+}
+
+/* ====== HISTORIAL ====== */
+
+.historial-container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tabla-historial {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-historial th {
+    background: #1A6DDA;
+    color: white;
+    padding: 12px;
+}
+
+.tabla-historial td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+/* ====== NAV ====== */
+
+.nav-icons {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.icon {
+    width: 32px;
+    cursor: pointer;
+}
+
+/* ====== FOOTER ====== */
+
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 40px 80px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}

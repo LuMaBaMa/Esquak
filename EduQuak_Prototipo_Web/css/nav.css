@@ -1,0 +1,120 @@
+/* =========================================================
+   NAVBAR UNIVERSAL PARA TODAS LAS PÁGINAS
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+    background: #ffffff;
+    padding: 18px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e6eef9;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   LADO IZQUIERDO - LOGO + TEXTO
+   =========================== */
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar-left .logo {
+    width: 60px;
+    height: auto;
+}
+
+.navbar-left .titulo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1A6DDA;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===========================
+   LADO DERECHO - ICONOS
+   =========================== */
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-icons .icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nav-icons .icon:hover {
+    transform: scale(1.12);
+}
+
+/* ===========================
+   ESPACIADO DEL CONTENIDO
+   =========================== */
+
+.contenedor,
+.contenido,
+.main-alumno,
+.main-asesor,
+.login-container {
+    margin-top: 60px; /* evita que el contenido se suba al nav */
+}
+
+header {
+    width: 100%;
+    background: #ffffff;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e6eef9;
+    box-sizing: border-box;
+}
+
+/* Lado izquierdo */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+header .logo img {
+    width: 55px;
+    height: auto;
+}
+
+header .logo h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1A6DDA;
+    margin: 0;
+}
+
+/* Lado derecho (iconos) */
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+header nav .icono {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+header nav .icono:hover {
+    transform: scale(1.13);
+}

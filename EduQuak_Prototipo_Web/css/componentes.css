@@ -1,0 +1,71 @@
+/* TARJETAS */
+.card {
+  background: var(--claro);
+  border-radius: var(--radio);
+  padding: 30px 25px;
+  box-shadow: var(--sombra);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* TABLAS */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: var(--sombra);
+}
+
+th {
+  background-color: var(--primario);
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #f3f7ff;
+}
+
+/* MATERIAS */
+.grid-materias {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.materia {
+  border-radius: var(--radio);
+  color: #000;
+  font-weight: 600;
+  padding: 40px 0;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.materia:hover {
+  transform: scale(1.05);
+}
+
+/* COLORES DE MATERIAS */
+.algebra { background: #FFA726; }
+.fisica { background: #FFEE58; }
+.quimica { background: #81C784; }
+.ingles { background: #64B5F6; }
+.geometria { background: #BA68C8; }
+.trigonometria { background: #EF5350; }
+.calculo { background: #4DB6AC; }
+.espanol { background: #7986CB; }

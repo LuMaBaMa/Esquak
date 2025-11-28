@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administrador</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/estructura.css">
+    <link rel="stylesheet" href="../css/paginas/admin.css">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="../img/logo.png" class="logo">
+            <span class="titulo">EduQuak</span>
+        </div>
+
+        <div class="nav-icons">
+            <a href="../index.html"><img src="../img/logout.png" class="icon"></a>
+        </div>
+    </header>
+
+    <main class="contenido">
+
+        <!-- BIENVENIDA -->
+        <section class="bienvenida">
+            <h2>Bienvenido Administrador</h2>
+            <p>Administra material, información o da de baja cuentas de forma definitiva</p>
+        </section>
+
+        <!-- HISTORIAL -->
+        <section class="asesorias-seccion">
+            <div class="titulo-btn">
+                <h2>Historial de asesorias</h2>
+                <a href="ver_historial_admin.html"><button class="btn-historial">Ver historial completo</button></a>
+            </div>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Materia</th>
+                        <th>Fecha</th>
+                        <th>Asesor</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Matemáticas</td>
+                        <td>07/11/2025</td>
+                        <td>Laura Gómez</td>
+                        <td><span class="pendiente">Pendiente</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Programación</td>
+                        <td>09/11/2025</td>
+                        <td>Carlos Ruiz</td>
+                        <td><span class="confirmada">Confirmada</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+
+        <!-- INFO PERSONAL -->
+        <section class="info-personal">
+            <h2>Visualizar información personal</h2>
+
+            <div class="opciones-grid">
+                <div class="card" onclick="location.href='ver_asesores.html'">
+                    <img src="../img/icon_asesor.png">
+                    <h4>Asesores</h4>
+                </div>
+
+                <div class="card" onclick="location.href='ver_estudiantes.html'">
+                    <img src="../img/icon_estudiantes.png">
+                    <h4>Estudiantes</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATERIAL Y CUESTIONARIOS -->
+        <section class="material-cuestionarios">
+            <h2>Material y cuestionarios</h2>
+
+            <div class="opciones-grid">
+                <div class="card" onclick="location.href='material_admin.html'">
+                    <img src="../img/icon_material.png">
+                    <h4>Material</h4>
+                </div>
+
+                <div class="card" onclick="location.href='cuestionarios_admin.html'">
+                    <img src="../img/icon_cuestionarios.png">
+                    <h4>Cuestionarios</h4>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div>
+            <h4>EduQuak</h4>
+            <p>La plataforma que conecta estudiantes y asesores para impulsar el aprendizaje.<br>
+            Aprende, enseña y crece con nosotros.</p>
+        </div>
+
+        <div>
+            <h4>Explora</h4>
+            <p>- Inicio<br>
+               - Asesorías<br>
+               - Convertirte en asesor<br>
+               - Contacto</p>
+        </div>
+
+        <div>
+            <h4>© 2025 EduQuak — Todos los derechos reservados.</h4>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Subir Material</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/estructura.css">
+<link rel="stylesheet" href="../css/nav_asesor.css">   <!-- IMPORTANTE -->
+<link rel="stylesheet" href="../css/paginas/subir_material.css">
+
+</head>
+
+<body>
+
+    <header class="nav-asesor">
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo EduQuak">
+        <h1>EduQuak</h1>
+    </div>
+
+    <nav>
+        <a href="principal_asesor.html"><img src="../img/iconos/back.png" class="icono" alt="Regresar"></a>
+    </nav>
+</header>
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+        <h1 class="titulo-seccion">Gestión de materiales</h1>
+
+        <div class="grid-contenido">
+
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="columna formulario-container">
+
+                <h2 class="subtitulo">Subir nuevo material</h2>
+
+                <form class="formulario" onsubmit="return confirmarSubida()">
+
+                    <label>Nombre del archivo:</label>
+                    <input type="text" required>
+
+                    <label>Materia:</label>
+                    <input type="text" required>
+
+                    <label>Archivo (PDF, PNG, JPG):</label>
+                    <input type="file" accept=".pdf,.png,.jpg,.jpeg" required>
+
+                    <button type="submit" class="btn-subir">Subir material</button>
+                </form>
+
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+            <div class="columna historial-container">
+
+                <h2 class="subtitulo">Historial de materiales</h2>
+
+                <table class="tabla-historial">
+                    <thead>
+                        <tr>
+                            <th>Archivo</th>
+                            <th>Materia</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Formulario Derivadas</td>
+                            <td>Cálculo Diferencial</td>
+                            <td>08/11/2025</td>
+                        </tr>
+
+                        <tr>
+                            <td>Ejercicios Resueltos</td>
+                            <td>Álgebra</td>
+                            <td>05/11/2025</td>
+                        </tr>
+
+                        <tr>
+                            <td>Guía de Estudio</td>
+                            <td>Programación</td>
+                            <td>02/11/2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div>
+            <h4>EduQuak</h4>
+            <p>La plataforma que conecta estudiantes y asesores para impulsar el aprendizaje.<br>
+            Aprende, enseña y crece con nosotros.</p>
+        </div>
+
+        <div>
+            <h4>Explora</h4>
+            <p>- Inicio<br>
+               - Asesorías<br>
+               - Convertirte en asesor<br>
+               - Contacto</p>
+        </div>
+
+        <div>
+            <h4>© 2025 EduQuak — Todos los derechos reservados.</h4>
+        </div>
+    </footer>
+
+    <script>
+        function confirmarSubida() {
+            alert("Material subido correctamente.");
+            return false;
+        }
+    </script>
+
+</body>
+</html>

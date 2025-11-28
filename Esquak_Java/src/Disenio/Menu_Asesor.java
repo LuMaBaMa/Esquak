@@ -235,6 +235,9 @@ public class Menu_Asesor extends javax.swing.JFrame {
     }//GEN-LAST:event_Informacion_PersonalActionPerformed
 
     private void Cerrar_Sesion_AsesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_Sesion_AsesorActionPerformed
+        Logica.Configuracion conf = new Logica.Configuracion();
+        conf.setCod(0);
+        conf.setBusqueda(0);
         Principal menu = new Principal();
         menu.setVisible(true);
         dispose();

@@ -1,0 +1,191 @@
+/* =========================================
+   PANEL ADMIN — ESTILO UNIFICADO EDUQUAK
+   Basado en estilos de ALUMNO + ASESOR
+========================================= */
+
+/* ====== BIENVENIDA ====== */
+.bienvenida {
+  background: #1A6DDA;
+  color: #fff;
+  border-radius: 12px;
+  padding: 30px 60px;
+  max-width: 900px;
+  margin: 60px auto 40px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(26, 109, 218, 0.3);
+}
+
+.bienvenida h2 {
+  margin: 0;
+  color: #fff;
+}
+
+.bienvenida p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-top: 8px;
+  color: #fff;
+}
+
+/* ====== SECCIÓN ASESORÍAS ====== */
+.asesorias-seccion {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+.titulo-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.titulo-btn h2 {
+  margin: 0;
+}
+
+.btn-historial {
+  background: #E0E0E0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.btn-historial:hover {
+  background: #cacaca;
+}
+
+/* TABLA */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tabla th {
+  background: #1A6DDA;
+  color: white;
+  padding: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.tabla td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.pendiente {
+  background: #FFA726;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.confirmada {
+  background: #4CAF50;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* ====== SECCIÓN TARJETAS ====== */
+.info-personal, .material-cuestionarios {
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px auto;
+}
+
+.opciones-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #EAF4FF;
+  border-radius: 12px;
+  padding: 40px 30px;
+  width: 280px;
+  height: 230px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card img {
+  width: 70px;
+  margin-bottom: 15px;
+}
+
+.card h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #111;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(26,109,218,0.2);
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  background: #111;
+  color: white;
+  padding: 50px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 80px;
+}
+
+.footer h4 {
+  margin-bottom: 10px;
+}
+
+.footer p {
+  opacity: 0.8;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.footer div:nth-child(3) h4 {
+  text-align: right;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px) {
+  .opciones-grid {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bienvenida {
+    text-align: center;
+  }
+
+  .tabla th, .tabla td {
+    font-size: 14px;
+  }
+
+  .footer div:nth-child(3) h4 {
+    text-align: left;
+  }
+}

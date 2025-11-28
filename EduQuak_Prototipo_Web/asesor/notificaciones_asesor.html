@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificaciones</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/estructura.css">
+<link rel="stylesheet" href="../css/nav_asesor.css">   <!-- IMPORTANTE -->
+<link rel="stylesheet" href="../css/paginas/notificaciones_asesor.css">
+
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <header class="nav-asesor">
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo EduQuak">
+        <h1>EduQuak</h1>
+    </div>
+
+    <nav>
+        <a href="principal_asesor.html"><img src="../img/iconos/back.png" class="icono" alt="Regresar"></a>
+    </nav>
+</header>
+
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+        <h1 class="titulo-seccion">Notificaciones</h1>
+        <p class="descripcion">Solicitudes de asesoría pendientes. Asigna fecha y horario antes de aceptar.</p>
+
+        <div class="noti-tabla-contenedor">
+
+            <table class="tabla-noti">
+                <thead>
+                    <tr>
+                        <th>Alumno</th>
+                        <th>Materia</th>
+                        <th>Asignar fecha</th>
+                        <th>Asignar horario</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Carlos Méndez</td>
+                        <td>Cálculo Diferencial</td>
+                        <td><input type="date" class="input-fecha"></td>
+                        <td><input type="time" class="input-hora"></td>
+                        <td>
+                            <button class="btn-aceptar">Aceptar</button>
+                            <button class="btn-rechazar">Rechazar</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Ana López</td>
+                        <td>Álgebra</td>
+                        <td><input type="date" class="input-fecha"></td>
+                        <td><input type="time" class="input-hora"></td>
+                        <td>
+                            <button class="btn-aceptar">Aceptar</button>
+                            <button class="btn-rechazar">Rechazar</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>David Reyes</td>
+                        <td>Programación</td>
+                        <td><input type="date" class="input-fecha"></td>
+                        <td><input type="time" class="input-hora"></td>
+                        <td>
+                            <button class="btn-aceptar">Aceptar</button>
+                            <button class="btn-rechazar">Rechazar</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div>
+            <h4>EduQuak</h4>
+            <p>La plataforma que conecta estudiantes y asesores para impulsar el aprendizaje.<br>
+            Aprende, enseña y crece con nosotros.</p>
+        </div>
+
+        <div>
+            <h4>Explora</h4>
+            <p>- Inicio<br>
+               - Asesorías<br>
+               - Convertirte en asesor<br>
+               - Contacto</p>
+        </div>
+
+        <div>
+            <h4>© 2025 EduQuak — Todos los derechos reservados.</h4>
+        </div>
+    </footer>
+
+</body>
+</html>

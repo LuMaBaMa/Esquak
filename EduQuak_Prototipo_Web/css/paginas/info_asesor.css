@@ -1,0 +1,74 @@
+.contenido {
+    padding: 40px 80px;
+}
+
+/* Título de materia */
+.titulo-materia {
+    background: #1d77ea;
+    padding: 15px 25px;
+    color: white;
+    width: fit-content;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+/* Cuadro azul de info */
+.contenedor-info {
+    margin-top: 30px;
+    background: #1d77ea;
+    width: 45%;
+    padding: 25px;
+    border-radius: 16px;
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Card del asesor */
+.asesor-card {
+    position: absolute;
+    right: 180px;
+    top: 190px;
+    background: #e8f1ff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 230px;
+}
+
+.asesor-card img {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+/* Botón */
+.btn-solicitar {
+    background: #1d77ea;
+    padding: 12px 25px;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-solicitar:hover {
+    opacity: 0.85;
+}
+
+/* Iconos nav */
+.nav-icons {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-icons img {
+    width: 32px;
+    cursor: pointer;
+}

@@ -1,0 +1,77 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuak - Inicio de Sesión</title>
+  
+  <link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/componentes.css">
+<link rel="stylesheet" href="css/estructura.css">
+<link rel="stylesheet" href="css/nav.css">     <!-- ⭐ IMPORTANTE -->
+<link rel="stylesheet" href="css/paginas/inicio_sesion.css">
+
+</head>
+
+
+<body>
+  <header class="navbar">
+    <div class="navbar-left">
+        <img src="img/logo.png" class="logo">
+        <span class="titulo">EduQuak</span>
+    </div>
+
+    <div class="nav-icons">
+        <a href="index.html"><img src="img/home.png" class="icon"></a>
+    </div>
+</header>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="login-container">
+    <h2>Inicio de sesión:</h2>
+
+    <form class="login-box">
+      <label for="usuario">Nombre de Usuario:</label>
+      <input type="text" id="usuario" name="usuario" required>
+
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" required>
+
+      <label>Tipo de Usuario:</label>
+      <div class="tipo-usuario">
+        <label for="alumno">
+          <input type="radio" id="alumno" name="tipo" value="alumno" required>
+          Alumno
+        </label>
+        <label for="asesor">
+          <input type="radio" id="asesor" name="tipo" value="asesor" required>
+          Asesor
+        </label>
+      </div>
+
+      <button type="submit">Iniciar sesión</button>
+      <a href="administrador/principal_admin.html">admin</a>
+    </form>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <p><strong>EduQuak</strong><br>
+      La plataforma que conecta estudiantes y asesores para impulsar el aprendizaje.<br>
+      Aprende, enseña y crece con nosotros.</p>
+
+      <div class="footer-links">
+        <h4>Explora</h4>
+        <a href="index.html">Inicio</a>
+        <a href="#">Asesorías</a>
+        <a href="#">Convertirte en asesor</a>
+        <a href="#">Contacto</a>
+      </div>
+
+      <p class="copyright">
+        © 2025 EduQuak — Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

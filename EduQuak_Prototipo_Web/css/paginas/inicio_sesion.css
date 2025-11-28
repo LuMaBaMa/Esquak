@@ -1,0 +1,172 @@
+/* ==== ESTILOS GENERALES ==== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fafafa;
+  color: #000;
+}
+
+/* ==== FOOTER ==== */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+footer h4 {
+  color: var(--claro);
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: var(--claro);
+  display: block;
+  margin: 4px 0;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer .copyright {
+  color: #bbb;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* ==== CONTENEDOR PRINCIPAL ==== */
+main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 60px 5%;
+}
+
+/* ==== LOGIN ==== */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  padding: 40px 20px;
+}
+
+.login-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.login-box {
+  background-color: #f1f1f1;
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.login-box label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.8px solid #ccc;
+  margin-bottom: 20px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.login-box input:focus {
+  border-color: #1A6DDA;
+  outline: none;
+}
+
+/* ==== RADIO BUTTONS ==== */
+.tipo-usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-bottom: 25px;
+}
+
+.tipo-usuario label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.tipo-usuario input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tipo-usuario input[type="radio"]:checked {
+  border-color: #1A6DDA;
+  box-shadow: 0 0 0 3px rgba(26, 109, 218, 0.25);
+}
+
+.tipo-usuario input#alumno:checked {
+  background-color: #1A6DDA;
+  border-color: #1A6DDA;
+}
+
+.tipo-usuario input#asesor:checked {
+  background-color: #2ECC71;
+  border-color: #2ECC71;
+}
+
+/* ==== BOTÓN ==== */
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1A6DDA;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-box button:hover {
+  background-color: #0e54b8;
+  transform: translateY(-1px);
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .login-box {
+    width: 85%;
+    padding: 25px;
+  }
+
+  .tipo-usuario {
+    gap: 20px;
+  }
+
+  .login-container h2 {
+    font-size: 24px;
+  }
+}

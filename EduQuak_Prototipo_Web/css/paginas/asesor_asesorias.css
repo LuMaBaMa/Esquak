@@ -1,0 +1,94 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.contenido {
+    padding: 40px 80px;
+}
+
+/* ===== TÍTULO PRINCIPAL ===== */
+.titulo-seccion {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* ===== SUBTÍTULOS ===== */
+.subtitulo {
+    font-size: 22px;
+    margin: 40px 0 15px;
+    font-weight: 600;
+}
+
+.confirmada-title {
+    color: #1fa751;
+}
+
+/* ===== TABLA GENERAL ===== */
+.tabla {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Encabezados */
+.tabla th {
+    background: #1A6DDA;
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Celdas */
+.tabla td {
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Última fila sin borde */
+.tabla tr:last-child td {
+    border-bottom: none;
+}
+
+/* Estados */
+.confirmada {
+    color: #1FA751;
+    font-weight: bold;
+}
+
+/* ===== NAV ICONS ===== */
+.nav-icons {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.icon {
+    width: 32px;
+    cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.footer h4 {
+    margin-bottom: 10px;
+}
+
+.footer p {
+    opacity: 0.85;
+    line-height: 1.4;
+}

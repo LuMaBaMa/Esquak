@@ -1,0 +1,90 @@
+.registro-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: var(--fondo);
+  min-height: 75vh;
+}
+
+.registro-main h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: var(--texto);
+}
+
+/* FORMULARIO COMPACTO Y ELEGANTE */
+.registro-form {
+  background-color: #F0F6FF;
+  border-radius: var(--radio);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 35px 40px;
+  width: 400px;
+  text-align: center;
+}
+
+.registro-form label {
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  color: var(--texto);
+  margin-top: 12px;
+  font-size: 15px;
+}
+
+.registro-form input {
+  width: 100%;
+  padding: 9px;
+  border: 2px solid #d3d3d3;
+  border-radius: var(--radio);
+  font-size: 14px;
+  margin-top: 4px;
+  transition: 0.3s;
+  background-color: #fff;
+}
+
+.registro-form input:focus {
+  border-color: var(--primario);
+  outline: none;
+}
+
+/* BOTÓN */
+.registro-form button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radio);
+  background-color: var(--primario);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.registro-form button:hover {
+  background-color: var(--primario-oscuro);
+}
+
+/* ICONO HOME */
+.icono-home {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.icono-home:hover {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .registro-form {
+    width: 85%;
+    padding: 25px 20px;
+  }
+}
